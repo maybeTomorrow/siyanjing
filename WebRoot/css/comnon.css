@@ -375,11 +375,67 @@ body {
 }
 
 #com_loading {
-	text-align:center;
+    text-align: center;
 }
 
-#com_cnt{
-	
+.com_container {
+}
+
+.com_header {
+    background-color: #00a4ef;
+    padding: 5px;
+    font-weight: bold;
+}
+
+.com_header span {
+}
+
+.com_header a {
+    float: right;
+}
+
+.com_item {
+    padding: 3px;
+}
+
+.com_item .avatar {
+    display: block;
+    width: 40;
+    height: 40;
+    text-decoration: none;
+    float: left;
+}
+
+.com_item .avatar img {
+    display: block;
+    width: 34;
+    height: 34;
+    padding: 2px;
+    border: 1px solid #eee;
+}
+
+.com_item .avatar img:hover {
+    border: 1px solid #00a4ef;
+}
+
+.com_cnt {
+}
+
+.com_cnt .meta {
+}
+
+.com_cnt .cnt {
+}
+#add_comment {
+    padding: 10px 0 0 5px;
+}
+#add_comment textarea {
+    width: 450px;
+    height: 100px;
+	padding:5px;
+}
+#add_comment .submit {
+    margin-top: 5px;
 }
 
 .footer {

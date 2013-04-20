@@ -19,3 +19,7 @@ $.ajax({
         $com_dis.html('加载评论粗无');
     }
 });
+
+function reply(uname,nickname){
+	
+}

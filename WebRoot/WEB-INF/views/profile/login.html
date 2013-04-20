@@ -8,6 +8,7 @@
 			</div>
 			<div class="ui-box-container ui-box-content">
 				<form action="/login/submit" method="post" class="ui-form">
+					<input type="hidden" name="redirect" value="${redirect}">
 					${error!}
 					<div class="ui-form-item">
             			<label for="" class="ui-label">

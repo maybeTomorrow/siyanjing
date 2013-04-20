@@ -1,15 +1,41 @@
-<div id="com_cnt">
-	<div id=""></div>
+<div class="com_container">
+	<div class="com_header">
+		<span>
+			评论&nbsp;&nbsp;&nbsp;&nbsp;共${count}条评论
+		</span>
+		<a href="#add_comment">
+			发表评论
+		</a>
+	</div>
 	<#list comment_list.list as comment>
-		${comment.id}
-		${comment.target}
-		${comment.comment_uname}
-		${comment.comment_unikename}
-		${comment.avatar}
-		${comment.at_uname}
-		${comment.at_unikename}
-		${comment.comment}
-		${comment.comment_date}
-		<br/>
+	<div class="com_item clearfix">
+		<a href="http://my.siyanjing.com/${comment.comment_uname}" class="avatar">
+			<img src="<#if comment.avatar ??>${comment.avatar}<#else>/images/photo.jpg</#if>"/>
+		</a>
+		<div class="com_cnt">
+			<p class="meta">
+				${comment_index+1}楼：${comment.comment_unickname}&nbsp;&nbsp;发布于${comment.comment_date}
+				<a href="javascript:replay(${comment.comment_uname},${comment.comment_unickname})">
+					回复
+				</a>
+			</p>
+			<p class="cnt">
+				${comment.at_uname}
+				${comment.at_unikename}
+				${comment.comment}
+			</p>
+		</div>
+	</div>
 	</#list>
+	<div id="add_comment">
+		<#if auth_user??><textarea></textarea>
+		<br/>
+		<div class="btn-g blue submit">
+			发表评论
+		</div>
+		${target}
+		<#else>
+			<a href="/login?redirect=">登录</a>后评论
+		</#if>
+	</div>
 </div>

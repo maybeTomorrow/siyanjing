@@ -2,6 +2,7 @@ package me.thinkjet.controller;
 
 import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;
+import java.net.URLEncoder;
 import java.util.List;
 
 import me.thinkjet.auth.AuthManager;
@@ -32,9 +33,17 @@ public class LoginController extends Controller {
 	private EmailService es = new EmailService();
 
 	public void index() {
+		String target = "/";
+		try {
+			target = URLEncoder.encode(this.getRequest().getHeader("referer"),
+					"UTF-8");
+		} catch (UnsupportedEncodingException e) {
+			e.printStackTrace();
+		}
 		if (AuthManager.getSession(this) != null) {
 			this.redirect("/");
 		} else {
+			this.setAttr("redirect", target);
 			this.render("login.html");
 		}
 	}
