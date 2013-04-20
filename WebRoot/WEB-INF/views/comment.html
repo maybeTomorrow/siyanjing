@@ -10,30 +10,31 @@
 	<#list comment_list.list as comment>
 	<div class="com_item clearfix">
 		<a href="http://my.siyanjing.com/${comment.comment_uname}" class="avatar">
-			<img src="<#if comment.avatar ??>${comment.avatar}<#else>/images/photo.jpg</#if>"/>
+			<img src="<#if comment.avatar ??>${comment.avatar}<#else>/images/photo.jpg</#if>" width="34" height="34"/>
 		</a>
 		<div class="com_cnt">
 			<p class="meta">
 				${comment_index+1}楼：${comment.comment_unickname}&nbsp;&nbsp;发布于${comment.comment_date}
-				<a href="javascript:replay(${comment.comment_uname},${comment.comment_unickname})">
+				<a href="javascript:reply('${comment.comment_uname}','${comment.comment_unickname}')">
 					回复
 				</a>
 			</p>
 			<p class="cnt">
-				${comment.at_uname}
-				${comment.at_unikename}
 				${comment.comment}
 			</p>
 		</div>
 	</div>
 	</#list>
-	<div id="add_comment">
-		<#if auth_user??><textarea></textarea>
-		<br/>
-		<div class="btn-g blue submit">
-			发表评论
-		</div>
-		${target}
+	<div id="comment_add">
+		<#if auth_user??>
+			<form id="comment_add_form">
+				<input type="hidden" name="target" value="${target}"/>
+				<textarea></textarea>
+				<br/>
+				<div class="btn-g blue submit">
+					发表评论
+				</div>
+			</form>
 		<#else>
 			<a href="/login?redirect=">登录</a>后评论
 		</#if>

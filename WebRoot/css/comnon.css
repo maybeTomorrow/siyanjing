@@ -395,21 +395,21 @@ body {
 }
 
 .com_item {
-    padding: 3px;
+    padding: 10px 0 0 3px;
 }
 
 .com_item .avatar {
     display: block;
-    width: 40;
-    height: 40;
+    width: 40px;
+    height: 40px;
     text-decoration: none;
     float: left;
 }
 
 .com_item .avatar img {
     display: block;
-    width: 34;
-    height: 34;
+    width: 34px;
+    height: 34px;
     padding: 2px;
     border: 1px solid #eee;
 }
@@ -419,22 +419,24 @@ body {
 }
 
 .com_cnt {
+	margin-left:45px;
 }
 
 .com_cnt .meta {
 }
 
 .com_cnt .cnt {
+	padding-left:3px;
 }
-#add_comment {
+#comment_add {
     padding: 10px 0 0 5px;
 }
-#add_comment textarea {
+#comment_add textarea {
     width: 450px;
     height: 100px;
 	padding:5px;
 }
-#add_comment .submit {
+#comment_add .submit {
     margin-top: 5px;
 }
 

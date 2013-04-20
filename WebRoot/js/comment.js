@@ -20,6 +20,7 @@ $.ajax({
     }
 });
 
-function reply(uname,nickname){
-	
+function reply(uname, nickname){
+    $txtarea = $('#comment_add_form textarea');
+    $txtarea.html('<a href="my.siyanjing.com/'+uname+'" target="_blank">@'+nickname + '</a> ' + $txtarea.html());
 }
