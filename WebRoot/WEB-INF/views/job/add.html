@@ -1,0 +1,92 @@
+<#include "/layout/_layout.html" /> <@head title="首页|四眼井|互联网人的乐园 ">
+</@head> <@body> <#include "/layout/_nav.html" /><@nav 5/>
+<div class="container clearfix">
+	<div class="ui-grid-19">
+		<div class="mgl-20">
+			<div class="ui-box">
+				<form action="/job/create" class="ui-form" method="post">
+					<fieldset>
+						<div class="ui-form-item">
+							<label class="ui-label"><span class="lable">标题：</span></label><input class="ui-input" type="text"
+								name="job.title">
+						</div>
+						<div class="ui-form-item">
+							<label class="ui-label"><span class="lable">城市：</span></label><input class="ui-input" type="text"
+								name="job.city">
+						</div>
+						<div class="ui-form-item">
+							<label class="ui-label"><span class="lable">岗位名称：</span></label><input class="ui-input"
+								type="text" name="job.name">
+						</div>
+						<div class="ui-form-item">
+							<label class="ui-label"><span class="lable">公司名称:</span></label><input class="ui-input"
+								type="text" name="job.company">
+						</div>
+						<div class="ui-form-item">
+							<label class="ui-label"><span class="lable">email:</span></label><input class="ui-input"
+								type="text" name="job.email">
+						</div>
+						<div class="ui-form-item">
+							<label class="ui-label"><span class="lable">招聘人数:</span></label><input class="ui-input"
+								type="text" name="job.recruiting_numbers">
+						</div>
+						<div class="ui-form-item">
+							<label class="ui-label"><span class="lable">职位类别：</span></label></label> <select
+								class="ui-select" name="job.type">
+								<option value="0">请选择职位类别:</option>
+								<option value="1">.NET程序员</option>
+								<option value="2">PHP程序员</option>
+								<option value="3">Java程序员</option>
+								<option value="4">C/C++程序员</option>
+								<option value="19">Python程序员</option>
+								<option value="20">Ruby程序员</option>
+								<option value="5">JavaScript程序员</option>
+								<option value="6">Flash程序员</option>
+								<option value="7">Delphi程序员</option>
+								<option value="8">前端开发工程师</option>
+								<option value="9">项目经理</option>
+								<option value="10">技术主管</option>
+								<option value="11">架构师</option>
+								<option value="12">技术总监</option>
+								<option value="13">测试工程师</option>
+								<option value="14">系统管理员</option>
+								<option value="15">数据库管理员</option>
+								<option value="16">售前工程师</option>
+								<option value="17">手机应用开发工程师</option>
+								<option value="18">其他</option>
+							</select>
+						</div>
+						<div class="ui-form-item">
+							<label class="ui-label"><span class="lable">基本薪水：</span></label></label> <select
+								id="" class="ui-select" name="job.salary">
+
+								<option value="">请选择职位月薪</option>
+								<option value="0000001000">1000元以下</option>
+								<option value="0100002000">1000-2000元</option>
+								<option value="0200104000">2001-4000元</option>
+								<option value="0400106000">4001-6000元</option>
+								<option value="0600108000">6001-8000元</option>
+								<option value="0800110000">8001-10000元</option>
+								<option value="1000115000">10001-15000元</option>
+								<option value="1500125000">15000-25000元</option>
+								<option value="2500199999">25000元以上</option>
+							</select>
+						</div>
+						<div class="ui-form-item">
+							<label class="ui-label"><span class="lable">要求:</span></label>
+							<textarea class="ui-textarea" name="job.content"></textarea>
+						</div>
+						<div class="ui-form-item">
+							<div class="ui-button ui-button-mblue">
+								<input class="ui-input" type="submit" class="ui-button-text"
+									value="提交">
+							</div>
+						</div>
+					</fieldset>
+				</form>
+			</div>
+		</div>
+	</div>
+   <#include "/layout/job/rightmoudle.html">
+</div>
+</@body>

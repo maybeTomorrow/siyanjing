@@ -1,0 +1,33 @@
+<#include "/layout/_layout.html" />
+<@head title="首页|四眼井|互联网人的乐园 "></@head>
+<@body>
+	<div style="width:500px;margin:20px auto">
+		<div class="ui-box">
+			<div class="ui-box-title">
+				<h3>新用户注册</h3>
+			</div>
+			<div class="ui-box-container ui-box-content">
+				<form action="/login/reset" method="post" class="ui-form">
+					<div class="ui-form-item">
+            			<label for="" class="ui-label">
+                			<span class="ui-form-required">*</span>邮箱
+            			</label>
+            			<input class="ui-input" type="text" name="email">
+						<span class="ui-form-other"><a href="#">添加备注</a></span>
+            			<p class="ui-form-explain">英文字母a~z,A~Z,以及数字0～9</p>
+        			</div>
+					<div class="ui-form-item">
+            			<label for="" class="ui-label">
+                			<img src="/login/img" alt="" />
+            			</label>
+            			<input class="ui-input" type="text" name="vCode">
+        			</div>
+					<div class="ui-form-item">
+						<input type="submit" class="btn-g blue" value="确定">
+            			<input type="button" class="btn-g white" value="取消">
+        			</div> 
+				</form>
+			</div>
+		</div>
+	</div>
+</@body>

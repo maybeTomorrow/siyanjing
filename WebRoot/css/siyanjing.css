@@ -1,0 +1,278 @@
+/*slides module*/
+#slider {
+    width: 960px;
+    height: 300px;
+    overflow: hidden;
+    position: relative;
+    margin-bottom: 20px;
+    background-color: #efefef;
+    box-shadow: 0 0 5px 0 silver;
+}
+
+#switchable-content {
+    float: left;
+    width: 800px;
+    height: 300px;
+    position: relative;
+}
+
+#switchable-content ul {
+    height: 300px;
+    width: 1600px;
+}
+
+#switchable-content ul li.item {
+    width: 800px;
+    height: 300px;
+    position: absolute;
+    left: 800px;
+}
+
+#switchable-content ul li.active {
+    left: 0;
+}
+
+#switchable-content ul li img {
+    width: 800px;
+    height: 300px;
+    display: block;
+    overflow: hidden;
+}
+
+#switchable-content .caption {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    padding: 15px;
+    background: #333333;
+    background: rgba(0, 0, 0, 0.3);
+}
+
+#switchable-content .caption a, #switchable-content .caption a:visited, #switchable-content .caption a:hover {
+    color: #fff;
+    text-decoration: none;
+}
+
+#switchable-content .caption h3, #switchable-content .caption p {
+    line-height: 20px;
+    color: #ffffff;
+}
+
+#switchable-content .caption h3 {
+    line-height: 20px;
+    font-size: 17.5px;
+    margin: 0 0 5px;
+}
+
+#switchable-content .caption p {
+    margin-bottom: 0;
+}
+
+#switchable-nav {
+    width: 159px;
+    height: 300px;
+    float: right;
+    z-index: 5;
+    margin: 0;
+    list-style: none;
+    position: relative;
+    border-left: 1px solid #f2f2f2;
+    background-color: #fff;
+}
+
+#switchable-nav li {
+    display: block;
+    width: 100%;
+    height: 60px;
+}
+
+#switchable-nav img {
+    display: block;
+    width: 159px;
+    height: 60px;
+    overflow: hidden;
+}
+
+#switchable-nav .trans_cover {
+    width: 160px;
+    height: 60px;
+    background-color: #000;
+    -moz-opacity: 0.4;
+    opacity: .40;
+    filter: alpha(opacity = 40);
+    z-index: 98;
+    position: absolute;
+}
+
+#switchable-nav .trans_cover:hover, #switchable-nav span.active {
+    background-color: transparent;
+}
+
+#switchable-content .control {
+    position: absolute;
+    top: 50%;
+    left: 15px;
+    width: 40px;
+    height: 40px;
+    margin-top: -20px;
+    font-size: 60px;
+    font-weight: 100;
+    line-height: 30px;
+    color: #ffffff;
+    text-align: center;
+    opacity: 0.5;
+    filter: alpha(opacity = 50);
+}
+
+#switchable-content .control.right {
+    right: 15px;
+    left: auto;
+}
+
+#switchable-content .control:hover, #slider .control:focus {
+    color: #ffffff;
+    text-decoration: none;
+    opacity: 0.9;
+    filter: alpha(opacity = 90);
+}
+
+/*slides module END*/
+
+/*job list module*/
+.FilterPosition {
+margin: 0 0 20px 0;
+padding-bottom: 5px;
+border-bottom: 1px solid #eee;
+}
+.CoPart {
+margin-bottom: 10px;
+}
+.CoPart1 {
+font-size: 15px;
+font-weight: bold;
+margin-bottom: 5px;
+}
+.clear {
+clear: both;
+font-size: 1px;
+line-height: 0;
+}
+.FilterPosition .PoCount {
+margin-right: 2px;
+font-size: 12px;
+}
+.PsDetail {
+color: #666;
+margin: 0px;
+}
+.FilterPosition .PoWrapper {
+margin-right: 10px;
+color: grey;
+font-size: 9pt;
+}
+#JobDetail{
+	line-height: 2;
+}
+#JobDetail ul.info {
+margin: 0 0 15px 15px;
+float: right;
+width: 260px;
+border: 1px solid #ccc;
+background: #efe;
+padding-left: 5px;
+}
+
+.lable{
+	font-size:20px;
+}
+#JobDetail h4{
+	font-size:1.5em;
+	line-height:2;
+}
+.more_detail{
+	font-size: 1.2em;
+}
+/*
+ *job end
+  */
+/*
+ * box end
+ */
+.user-info {
+    float: right;
+    margin-right: 0;
+}
+
+.my-photo {
+    float: left;
+    height: 66px;
+    width: 66px;
+    margin: 10px 0 0 10px;
+}
+
+.my-account-info {
+    float: left;
+    padding-left: 10px;
+    height: 66px;
+}
+
+.my-account-info .ui-tit-m {
+    color: #666;
+    font-size: 14px;
+    font-weight: 700;
+    margin-top: 10px;
+    margin-bottom: 12px;
+}
+
+.my-account-info .ui-securelevel-max, .ui-securelevel-high, .ui-securelevel-medium, .ui-securelevel-low {
+    margin: 0px;
+    overflow: hidden;
+}
+
+.my-account-toppart {
+    padding-bottom: 10px;
+}
+
+.ui-securelevel-max-name, .ui-securelevel-high-name span {
+    color: #5AAB04;
+}
+
+.show-infor-app {
+    display: block;
+    padding-bottom: 12px;
+    padding-top: 12px;
+}
+
+.show-infor-app span.myapp-icon {
+    margin: 4px 5px 16px 10px;
+    width: 24px;
+    height: 24px;
+    text-indent: -9999px;
+    overflow: hidden;
+    float: left;
+    display: inline;
+    margin-bottom: 20px;
+}
+
+.show-infor-app-name {
+    font-weight: 700;
+    color: #666A72;
+}
+
+.show-infor-app-status {
+    font-size: 12px;
+    color: gray;
+}
+
+.recent {
+    float: right;
+    margin-right: 0px;
+}
+
+.myapp {
+    width: 100%;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+}

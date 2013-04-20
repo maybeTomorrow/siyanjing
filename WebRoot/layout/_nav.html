@@ -1,0 +1,56 @@
+<#macro nav currentNav>
+<div id="header" class="ui-header">
+	<div id="topNav" class="ui-top-navwrap clearfix">
+		<a class="logo" href="/">
+			<img src="http://cdn.thinkjet.me/img/logo.jpg" width="160" height="50"/>
+		</a>
+		<ul class="ui-top-nav">
+			<li>
+				<a href="/" class="<#if (currentNav==1)>nav-active</#if>">
+					首页
+				</a>
+			</li>
+			<li>
+				<a href="/news" class="<#if (currentNav==2)>nav-active</#if>">
+					资讯
+				</a>
+			</li>
+			<li>
+				<a href="/activity" class="<#if (currentNav==3)>nav-active</#if>">
+					活动
+				</a>
+			</li>
+			<li>
+				<a href="/discuss" class="<#if (currentNav==4)>nav-active</#if>">
+					讨论区
+				</a>
+			</li>
+			<li>
+				<a href="/job" class="<#if (currentNav==4)>nav-active</#if>">
+					招聘
+				</a>
+			</li>
+		</ul>
+		<div class="ui-nav-login">
+			<#if auth_user??>
+				<a href="my.siyanjing.com/">${auth_user.user.username}</a>
+				<a href="my.siyanjing.com/${auth_user.user.username}">我的主页</a>
+			<#else>
+				<a href="/login">
+					登录
+				</a>|
+				<a href="#">
+					<img src="http://cdn.thinkjet.me/img/weibo.ico" width="16" height="16"/>
+				</a>|
+				<a href="#">
+					<img src="http://cdn.thinkjet.me/img/douban.ico" width="15" height="15"/>
+				</a>|
+				<a href="/register">
+					注册
+				</a>
+			</#if>
+			
+		</div>
+	</div>
+</div>
+</#macro>

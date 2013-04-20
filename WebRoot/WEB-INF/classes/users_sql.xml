@@ -1,0 +1,11 @@
+<sqlGroup name="users">
+    <sql id="findOneByUsername">
+        select * from users where username = ?
+    </sql>
+	<sql id="findOneByEmail">
+        select * from users where email = ?
+    </sql>
+	<sql id="getUserRoleByUsername">
+        select * from user_role where user_id = ?
+    </sql>
+</sqlGroup>

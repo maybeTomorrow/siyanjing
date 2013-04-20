@@ -1,0 +1,68 @@
+<#include "/layout/_layout.html" /><@head title="首页|四眼井|互联网人的乐园 "></@head><@body>
+<div style="width:500px;margin:20px auto">
+	<div class="ui-box">
+		<div class="ui-box-title">
+			<h3>新用户注册</h3>
+		</div>
+		<div class="ui-box-container ui-box-content">
+			<form action="/register/verify" method="post" class="ui-form" id="register_form">
+				<div class="ui-form-item">
+					<label for="" class="ui-label">
+						<span class="ui-form-required">
+							*
+						</span>用户名
+					</label>
+					<input class="ui-input validate[required]" data-validation-placeholder="" type="text" name="users.username">
+					<span class="ui-form-other">
+						<a href="#">
+							添加备注
+						</a>
+					</span>
+					<p class="ui-form-explain">
+						英文字母a~z,A~Z,以及数字0～9
+					</p>
+				</div>
+				<div class="ui-form-item">
+					<label for="" class="ui-label">
+						<span class="ui-form-required">
+							*
+						</span>密码
+					</label>
+					<input class="ui-input validate[required]" type="password" name="users.password">
+				</div>
+				<div class="ui-form-item">
+					<label for="" class="ui-label">
+						<span class="ui-form-required">
+							*
+						</span>重复密码
+					</label>
+					<input class="ui-input validate[required]" type="password" name="users.password">
+				</div>
+				<div class="ui-form-item">
+					<label for="" class="ui-label">
+						<span class="ui-form-required">
+							*
+						</span>邮箱
+					</label>
+					<input class="ui-input validate[required,custom[email]]" type="text" name="users.email">
+				</div>
+				<div class="ui-form-item">
+					<input id="test" value="" type="checkbox">
+					<label for="test">
+						我已阅读并接受本站服务协议
+					</label>
+				</div>
+				<div class="ui-form-item">
+					<input type="submit" class="btn-g blue" value="注册"><input type="button" class="btn-g white" value="取消">
+				</div>
+			</form>
+		</div>
+	</div>
+</div><script type="text/javascript">
+	$(document).ready(function(){
+	    $("#register_form").validationEngine({
+	        promptPosition: 'inline'
+	    });
+	});
+</script>
+</@body>

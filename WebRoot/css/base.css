@@ -1,0 +1,296 @@
+/* 防止用户自定义背景颜色对网页的影响，添加让用户可以自定义字体 */
+html {
+    color: #333;
+    width: 100%;
+    height: 100%;
+    background: #eee;
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+}
+
+/* 内外边距通常让各个浏览器样式的表现位置不同 */
+body, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, code, form, fieldset, legend, input, textarea, p, blockquote, th, td, hr, button, article, aside, details, figcaption, figure, footer, header, group, menu, nav, section {
+    margin: 0;
+    padding: 0;
+}
+
+/* 重设 HTML5 标签, IE 需要在 js 中 createElement(TAG) */
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+    display: block;
+}
+
+/* HTML5 媒体文件跟 img 保持一致 */
+audio, canvas, video {
+    display: inline-block;
+    *display: inline;
+    *zoom: 1;
+}
+/* 字体的问题 */
+body{
+    margin: 0;
+    font:12px/1.5 tahoma,arial,Hiragino Sans GB,"Microsoft Yahei",\5b8b\4f53;
+    line-height: 20px;
+    color: #333333;
+}
+/* 要注意表单元素并不继承父级 font 的问题 */
+
+button, input, select, textarea {
+    font: 14px/1.5 'Arial', sans-serif;
+}
+
+input, select, textarea {
+    vertical-align:middle;
+    color:#666;
+}
+button, input {*overflow: visible;line-height: normal;}
+button::-moz-focus-inner,input::-moz-focus-inner {padding:0;border:0;}
+
+/* 去掉各Table  cell 的边距并让其边重合 */
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+/* IE bug fixed: th 不继承 text-align*/
+th {
+    text-align: inherit;
+}
+
+/* 去除默认边框 */
+fieldset, img {
+    border: 0;
+}
+
+/* ie6 7 8(q) bug 显示为行内表现 */
+iframe {
+    display: block;
+}
+
+/* 块/段落引用 */
+blockquote {
+    margin: 1em 4em 1em 2em;
+    padding: 0.6em 1em;
+    background: #f1f1f1;
+}
+blockquote blockquote {
+    padding: 0 0 0 1em;
+    margin-left: 2em;
+    border-left: 0.4em solid #ddd;
+}
+
+/* Firefox 以外，元素没有下划线，需添加 */
+acronym, abbr {
+    border-bottom: 1px dotted;
+    font-variant: normal;
+}
+
+/* 添加鼠标问号，进一步确保应用的语义是正确的 */
+abbr {
+    cursor: help;
+}
+
+/* 一致的 del 样式 */
+del {
+    text-decoration: line-through;
+}
+
+address, caption, cite, code, den, em, th, var {
+    font-style: normal;
+    font-weight: 500;
+}
+
+/* 去掉列表前的标识, li 会继承，大部分网站通常用列表来很多内容，所以应该当去 */
+ul, ol {
+    list-style: none;
+}
+
+/* 对齐是排版最重要的因素, 别让什么都居中 */
+caption, th {
+    text-align: left;
+}
+
+/* 标题应该更贴紧内容，并与其他块区分，margin 值要相应做优化 */
+h1, h2, h3, h4, h5, h6 {
+    font:500 100%/1 Arial, sans-serif;
+    font-weight:bold;
+	
+}
+
+q:before, q:after {
+    content: '';
+}
+
+/* 统一上标和下标 */
+sub, sup {
+    font-size: 75%;
+    line-height: 0;
+    position: relative;
+    vertical-align: baseline;
+}
+sup {
+    top: -0.5em;
+}
+sub {
+    bottom: -0.25em;
+}
+
+a{color:#06c;}
+
+/* 让链接在 hover 状态下显示下划线 */
+a:hover {
+    color:#f50;
+    text-decoration: underline;
+}
+
+/* 默认不显示下划线，保持页面简洁 */
+ins, a {
+    text-decoration: none;
+}
+
+pre, code {
+    font-family: 'Courier New', serif;
+}
+pre {
+    border: 1px solid #ddd;
+    border-left-width: 0.4em;
+    background: #fbfbfb;
+    padding: 10px;
+}
+code{
+    color:#080;
+}
+
+/* 底部印刷体、版本等标记 */
+small {
+    font-size: 12px;
+    color: #888;
+}
+
+/* 去虚线框 */
+:focus{outline:none;}
+
+/* 清理浮动 */
+.clear {
+    clear: both;
+    display: block;
+    overflow: hidden;
+    visibility: hidden;
+    width: 0;
+    height: 0;
+}
+
+.clearfix:before, .clearfix:after {
+    content: "";
+    display: table;
+}
+
+.clearfix:after {
+    clear: both
+}
+
+.clearfix {
+    *zoom: 1
+}
+
+/* 让内容以 border-box 显示 */
+.border-box{
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+/* hidden属性 */
+[hidden] { display: none; }
+.\-attr-hidden { display: none; }
+
+
+/*
+@ 引用: http://aliceui.com/force-wrap/
+@ 名称: 强制换行
+@ 用法:
+	* 一般块级元素用：.textwrap
+	* table标签中需添加：.textwrap-table
+@ 例子:
+	<p class="textwrap">…</p>
+	<table class="textwrap textwrap-table"></table>
+*/
+
+.textwrap, .textwrap td, .textwrap th{word-wrap:break-word;word-break:break-all;}
+.textwrap-table{table-layout:fixed;}
+.fn-right{float:right;}
+.fn-left{float:left;}
+.center{display:block;margin-left:auto;margin-right:auto;}
+.fn-hide{display:none;}
+.fn-show{display:block;}
+.hide-text{color:transparent;text-shadow:none;background-color:transparent;border:0;}
+.invisible{visibility:hidden;}
+body .mgl-20{margin-left: 20px;}
+body .mglr-20{margin: 0 20px;}
+body .mgr-20{margin-right:20px;}
+
+/*
+@ 引用: http://aliceui.com/
+@ 名称: Layout
+ grid system */
+.ui-grid-1,.ui-grid-2,.ui-grid-3,.ui-grid-4,.ui-grid-5,.ui-grid-6,.ui-grid-7,.ui-grid-8,.ui-grid-9,.ui-grid-10,.ui-grid-11,.ui-grid-12,.ui-grid-13,.ui-grid-14,.ui-grid-15,.ui-grid-16,.ui-grid-17,.ui-grid-18,.ui-grid-19,.ui-grid-20,.ui-grid-21,.ui-grid-22,.ui-grid-23,.ui-grid-24,.ui-grid-25{margin:0 10px 10px 0;float:left;display:inline}
+.ui-grid-1{width:30px}
+.ui-grid-2{width:70px}
+.ui-grid-3{width:110px}
+.ui-grid-4{width:150px}
+.ui-grid-5{width:190px}
+.ui-grid-6{width:230px}
+.ui-grid-7{width:270px}
+.ui-grid-8{width:310px}
+.ui-grid-9{width:350px}
+.ui-grid-10{width:390px}
+.ui-grid-11{width:430px}
+.ui-grid-12{width:470px}
+.ui-grid-13{width:510px}
+.ui-grid-14{width:550px}
+.ui-grid-15{width:590px}
+.ui-grid-16{width:630px}
+.ui-grid-17{width:670px}
+.ui-grid-18{width:710px}
+.ui-grid-19{width:750px}
+.ui-grid-20{width:790px}
+.ui-grid-21{width:830px}
+.ui-grid-22{width:870px}
+.ui-grid-23{width:910px}
+.ui-grid-24{width:950px}
+.ui-grid-25{width:990px}
+.ui-grid-right{margin-right:0px; }
+
+/*list design*/
+.ui-list{
+    margin: 0px;
+}
+.ui-list li{
+    position: relative;
+    padding: 10px 8px 10px 80px;
+    border-bottom: 1px solid #E2E2E2;
+    list-style: none;
+    background: -webkit-linear-gradient(#ffffff, #fafafa);
+    background: -moz-linear-gradient(#ffffff, #fafafa);
+    -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr='#fafafa',endColorstr='#eaeaea')";
+}
+/*base layout*/
+.w1000{
+    width: 1000px;
+}
+.w960{
+    width: 960px;
+}
+.pd20{padding: 20px;}
+/*
+@ 名称: hacker
+  前缀:sl-
+*/
+.sl-inline-block { display: inline-block; *display: inline; *zoom:1; }
+.sl-linear{background:-webkit-gradient(linear,left top,left bottom,from(#fcfcfc),to(#f1f1f1));background:-moz-linear-gradient(top,#fcfcfc,#f1f1f1);filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#fcfcfc',endColorstr='#f1f1f1');background:-o-linear-gradient(top,#fcfcfc,#f1f1f1);background:linear-gradient(top,#fcfcfc,#f1f1f1)}
+.sl-rc-wrap{display:inline-block;vertical-align:middle;border-left:1px solid #ddd;border-right:1px solid #ddd}
+.sl-rc-cnt{float:left;position:relative;border-top:1px solid #ddd;border-bottom:1px solid #ddd;margin:-1px 0}
+div.sl-rc-wrap,p.sl-rc-wrap,h2.sl-rc-wrap,h3.sl-rc-wrap,h4.sl-rc-wrap,h5.sl-rc-wrap,h6.sl-rc-wrap,ul.sl-rc-wrap,ol.sl-rc-wrap{display:inline}
+.sl-rc-hover,.sl-rc-hover .sl-rc-cnt,.sl-rc-wrap:hover,.sl-rc-wrap:hover .sl-rc-cnt{text-decoration:none;border-color:#aaa}
+.sl-alpha{background:rgba(0,0,0,0.3);filter:progid:DXImageTransform.Microsoft.Gradient(GradientType=0,StartColorStr='#4c000000',EndColorStr='#4c000000');padding:0 3px 3px;border-top:3px solid #b0b0b0}
+:root .sl-alpha{filter:progid:DXImageTransform.Microsoft.Gradient(GradientType=0,StartColorStr='#00000000',EndColorStr='#00000000')}

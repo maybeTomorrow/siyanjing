@@ -1,0 +1,8 @@
+<sqlGroup name="blog">
+    <sql id="findListForIndex">
+        select B.*,R.* from blog B left join blog_record R on B.id=R.blog_id order by B.id asc limit 0,10
+    </sql>
+    <sql id="findUser">
+        select * from user
+    </sql>
+</sqlGroup>

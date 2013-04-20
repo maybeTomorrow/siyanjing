@@ -1,0 +1,416 @@
+/*
+ * nav
+ */
+.ui-header {
+    position: fixed;
+    left: 0;
+    height: 80px;
+    width: 100%;
+    z-index: 991;
+    background: url("http://cdn.thinkjet.me/img/content_bg.png") repeat scroll 0 0 transparent;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.ui-header-scroll {
+    height: 40px;
+}
+
+.ui-top-navwrap {
+    width: 1000px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.logo {
+    float: left;
+    display: block;
+    width: 160px;
+    height: 50px;
+    border-right: 1px solid #eee;
+    margin-top: 15px;
+    padding-right: 4px;
+}
+
+.ui-top-nav {
+    float: left;
+    margin-top: 23px;
+    margin-left: 10px;
+}
+
+.ui-top-nav-scroll {
+    margin-top: 3px;
+}
+
+.ui-top-nav > li {
+    position: relative;
+    display: block;
+    float: left;
+    padding: 0 10px;
+}
+
+.ui-top-nav li a {
+    height: 27px;
+    line-height: 27px;
+    color: #787878;
+    font-weight: bold;;
+    font-size: 16px;
+    cursor: pointer;
+    padding: 0 3px;
+    display: block;
+    text-decoration: none !important;
+}
+
+.ui-top-nav li a:hover, .ui-top-nav li a:focus, .nav-active {
+    border-bottom: 3px solid #00a4ef;
+}
+
+.ui-nav-login {
+    position: absolute;
+    right: 5px;
+    top: 5px;
+}
+
+.ui-nav-login a {
+    text-decoration: none;
+}
+
+body {
+    background: url("http://cdn.thinkjet.me/img/content_bg.png") repeat scroll 0 0 transparent;
+}
+
+/*nav end*/
+.container {
+    width: 1000px;
+    margin: 0 auto;
+    padding-top: 100px;
+    background-color: #fff;
+    border: 1px solid #e0e0e0;
+}
+
+#main {
+}
+
+.mainPanel {
+    padding: 20px;
+}
+
+/*box*/
+.ui-box {
+    border: 1px solid #efefef
+}
+
+.ui-box-green {
+    border: 1px solid #a0c96f
+}
+
+.ui-box-orange {
+    border: 1px solid #d5c5b1
+}
+
+.ui-box-follow {
+    border-top: 0
+}
+
+.ui-box-title {
+    border-bottom: 1px solid #efefef;
+    background-color: #f9f9f9;
+    position: relative;
+    height: 14px;
+    line-height: 16px;
+    overflow: hidden;
+    padding: 9px 10px 10px;
+    *padding: 9px 10px 10px;
+}
+
+.ui-box-title h3 {
+    color: #656565;
+    font-size: 14px;
+    font-weight: 700;
+    float: left;
+    display: inline;
+    border-left: 4px solid #4bbdf2;
+    padding-left: 4px;
+}
+
+.ui-box-title .ui-box-title-more {
+    float: right
+}
+
+.ui-box-title .ui-box-title-link {
+    float: left;
+    display: inline;
+    margin-left: 15px;
+    *margin-top: 1px
+}
+
+.ui-box-container {
+    background: #fff
+}
+
+.ui-box-content {
+    padding: 10px 10px 15px
+}
+
+.ui-box-green .ui-box-container {
+    background: #efffe2;
+    border: 0
+}
+
+.ui-box-orange .ui-box-container {
+    background: #f9f0e4;
+    border: 0
+}
+
+.ui-box-nocontainer {
+    border-bottom: 0;
+    overflow: hidden;
+    _position: relative;
+    height: 36px
+}
+
+.ui-box-nocontainer .ui-box-container {
+    opacity: 0
+}
+
+.ui-box-list {
+    overflow: hidden;
+}
+
+.ui-box-list-item {
+    overflow: hidden;
+    position: relative;
+    *zoom: 1;
+}
+
+.ui-box-list-item a {
+    float: left;
+    height: 44px;
+    line-height: 43px;
+    display: inline;
+    width: 100%;
+    color: rgb(102, 106, 114);
+    outline: 0;
+}
+
+.ui-box-list-item a span {
+    vertical-align: top;
+    cursor: pointer;
+    float: left;
+    display: inline;
+    color: rgb(102, 106, 114);
+}
+
+.ui-box-list-item a:hover {
+    background-color: #f0f0f0;
+}
+
+.ui-box-list-item a:hover span {
+    color: #00A6FC;
+}
+
+/*---左边导航---*/
+#nav-panel {
+    width: 200px;
+    position: fixed;
+    left: 50%;
+    top: 100px;
+    margin-left: -680px;
+    margin-top: 50px;
+    display: inline;
+}
+
+.sideBar {
+    text-align: right;
+}
+
+.sideBar ul > li {
+    color: #141F40;
+    cursor: pointer;
+    font-size: 16px; /* fo <i>*/
+    margin-bottom: 2px;
+}
+
+.sideBar ul > li figure {
+    padding: 6px 14px 6px 14px;
+    margin: 0;
+}
+
+.sideBar ul li i {
+    opacity: 0.7;
+    margin-top: 2px;
+}
+
+.menuText {
+    height: 20px;
+    line-height: 20px;
+}
+
+.menuText a {
+    color: #141F40;
+}
+
+/*幻灯片*/
+.w960 {
+    width: 960px;
+}
+
+/*people面板*/
+#peoplePanel {
+    float: right;
+    width: 200px;
+    height: 500px;
+    margin-right: 10px;
+}
+
+/*article panel*/
+.date {
+    float: left;
+    position: absolute;
+    height: 60px;
+    width: 60px;
+    margin-left: -70px;
+    color: #FFFFFF;
+}
+
+.date span {
+    display: block;
+}
+
+.date .date-ym {
+    text-align: center;
+    font-size: 12px;
+    background-color: #00a4ef;
+    color: #FFF;
+    margin-top: 3px;
+    padding: 2px;
+}
+
+.date .date-d {
+    text-align: center;
+    font-size: 25px;
+    background-color: #00a4ef;
+    padding: 3px;
+}
+
+.ui-article-item {
+    height: 37px;
+    line-height: 36px;
+    color: rgb(102, 106, 114);
+    outline: 0;
+}
+
+.ui-article-a {
+    margin-left: 40px;
+    /*position: relative;*/
+    overflow: hidden;
+    border-bottom: 1px #ddd solid;
+}
+
+.ui-article-a h2 {
+    font-size: 24px;
+    height: 26px;
+    line-height: 26px;
+}
+
+.ui-article-b {
+    border-bottom: 1px dashed #c6c6c6;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    padding-bottom: 5px;
+}
+
+.ui-article-title {
+    border-left: 5px solid #00a4ef;
+    padding: 5px 0 5px 10px;
+}
+
+.ui-article-title h2 {
+    font-size: 24px;
+    height: 26px;
+    line-height: 26px;
+}
+
+.ui-article-title h2 a {
+    text-decoration: none;
+}
+
+.ui-article-info {
+    width: 80%;
+    float: left;
+    font-size: 12px;
+    padding-top: 5px;
+    overflow: hidden;
+    line-height: 24px;
+    height: 24px;
+    color: #c0c0c0;
+}
+
+.ui-article-info span {
+    margin-right: 10px;
+}
+
+.people-panel {
+}
+
+.ui-box-list-item .avatar {
+    margin: 6px 10px;
+    width: 32px;
+    height: 32px;
+    text-indent: -9999px;
+    overflow: hidden;
+    float: left;
+    display: inline;
+    background-image: url("/images/photo.jpg");
+}
+
+.people-item .user-name {
+    font-size: 14px;
+}
+
+/*
+ * comment
+ *
+ */
+#comment_display {
+}
+
+#com_loading {
+	text-align:center;
+}
+
+#com_cnt{
+	
+}
+
+.footer {
+    width: 100%;
+    padding: 20px 0;
+    clear: both;
+    background: #eee;
+    border-top: 1px solid #e0e0e0;
+    margin-top: 10px;
+}
+
+.footer .footer-body {
+    text-align: center;
+    color: #aaa;
+}
+
+.article-body {
+    font: 500 14px / 1.8 Lucida, Verdana, Hiragino Sans GB, STHeiti, WenQuanYi Micro Hei, "Micro Yahei", SimSun, sans-serif;
+}
+
+.article-body h2 {
+    font-size: 28px;
+    font-weight: bold;
+    color: #000;
+    text-align: left;
+    line-height: 1.2;
+    margin-bottom: 10px;
+}
+
+.article-main {
+    float: left;
+}
+
+

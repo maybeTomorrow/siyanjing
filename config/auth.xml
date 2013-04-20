@@ -1,0 +1,10 @@
+<auth>
+    <intercept>
+        <intercept-url pattern="/admin/*" access="ROLE_ADMIN"/>
+        <intercept-url pattern="/password/*" access="ROLE_ADMIN"/>
+        <intercept-url pattern="/register.xhtml" access="ROLE_ADMIN"/>
+    </intercept>
+    <login-url value="/login"/>
+    <auth-failure-url value="/index.xhtml?error=1"/>
+    <auth-success-default-url value="/"/>
+</auth>

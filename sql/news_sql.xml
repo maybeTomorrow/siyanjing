@@ -1,0 +1,8 @@
+<sqlGroup name="news">
+    <sql id="findListForIndex">
+        select N.*,R.* from news N left join news_record R on N.id=R.news_id order by N.id asc limit 0,10
+    </sql>
+    <sql id="findUser">
+        select * from user
+    </sql>
+</sqlGroup>
