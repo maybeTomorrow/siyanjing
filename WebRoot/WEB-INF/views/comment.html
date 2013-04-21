@@ -27,14 +27,10 @@
 	</#list>
 	<div id="comment_add">
 		<#if auth_user??>
-			<form id="comment_add_form">
-				<input type="hidden" name="target" value="${target}"/>
-				<textarea></textarea>
-				<br/>
-				<div class="btn-g blue submit">
-					发表评论
-				</div>
-			</form>
+			<div contenteditable="true" class="editor" name="${target}"></div>
+			<div class="btn-g blue submit">
+				发表评论
+			</div>
 		<#else>
 			<a href="/login?redirect=">登录</a>后评论
 		</#if>

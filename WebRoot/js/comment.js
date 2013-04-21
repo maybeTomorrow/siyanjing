@@ -21,6 +21,21 @@ $.ajax({
 });
 
 function reply(uname, nickname){
-    $txtarea = $('#comment_add_form textarea');
-    $txtarea.html('<a href="my.siyanjing.com/'+uname+'" target="_blank">@'+nickname + '</a> ' + $txtarea.html());
+    $editor = $('#comment_add .editor');
+    var at = document.createElement('button');
+    at.name = '@{uname:' + uname + ',unickname:' + nickname + '}';
+    at.onclick = 'return false';
+    at.tabIndex = '-1';
+    at.contentEditable = 'false';
+    at.className = 'metion';
+    at.innerHTML = '@' + nickname + ': ';
+    $editor.empty().append(at).append('&nbsp;');
+    $editor.focus();
 }
+
+/*
+
+ * 光标最后 END
+
+ */
+
