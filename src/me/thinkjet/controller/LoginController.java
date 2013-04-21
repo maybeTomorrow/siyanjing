@@ -43,8 +43,7 @@ public class LoginController extends Controller {
 		else if (this.getPara("redirect") != null
 				&& !this.getPara("redirect").equals("")) {
 			try {
-				target = URLEncoder.encode(this.getPara("redirect"),
-						"UTF-8");
+				target = URLEncoder.encode(this.getPara("redirect"), "UTF-8");
 			} catch (UnsupportedEncodingException e) {
 			}
 		}
@@ -97,6 +96,11 @@ public class LoginController extends Controller {
 			this.render("login.html");
 			return;
 		}
+	}
+
+	public void out() {
+		AuthManager.RemoveSession(this);
+		this.redirect("/");
 	}
 
 	// 验证码图片

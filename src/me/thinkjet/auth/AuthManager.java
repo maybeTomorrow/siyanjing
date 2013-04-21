@@ -101,6 +101,11 @@ public class AuthManager {
 		controller.getSession().setAttribute(SESSION_NAME, authUser);
 	}
 
+	public static void RemoveSession(Controller controller) {
+		if (controller.getSession() != null)
+			controller.getSession().removeAttribute(SESSION_NAME);
+	}
+
 	public static AuthUser getSession(Controller controller) {
 		return controller.getSession().getAttribute(SESSION_NAME) == null ? null
 				: (AuthUser) controller.getSession().getAttribute(SESSION_NAME);
