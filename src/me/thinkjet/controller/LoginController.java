@@ -34,18 +34,22 @@ public class LoginController extends Controller {
 
 	public void index() {
 		String target = "/";
-		try {
-			target = URLEncoder.encode(this.getRequest().getHeader("referer"),
-					"UTF-8");
-		} catch (UnsupportedEncodingException e) {
-			e.printStackTrace();
+		if (this.getRequest().getHeader("referer") != null)
+			try {
+				target = URLEncoder.encode(
+						this.getRequest().getHeader("referer"), "UTF-8");
+			} catch (UnsupportedEncodingException e) {
+			}
+		else if (this.getPara("redirect") != null
+				&& !this.getPara("redirect").equals("")) {
+			try {
+				target = URLEncoder.encode(this.getPara("redirect"),
+						"UTF-8");
+			} catch (UnsupportedEncodingException e) {
+			}
 		}
-		if (AuthManager.getSession(this) != null) {
-			this.redirect("/");
-		} else {
-			this.setAttr("redirect", target);
-			this.render("login.html");
-		}
+		this.setAttr("redirect", target);
+		this.render("login.html");
 	}
 
 	// 登录
