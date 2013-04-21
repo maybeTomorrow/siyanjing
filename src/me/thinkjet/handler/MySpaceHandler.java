@@ -5,14 +5,14 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.jfinal.handler.Handler;
 
-public class UserSpaceHandler extends Handler {
+public class MySpaceHandler extends Handler {
 
 	public final static String ACTION_PERFIX = "/space";
 
 	private static String domain;
 
-	public UserSpaceHandler(String domain) {
-		UserSpaceHandler.domain = domain;
+	public MySpaceHandler(String domain) {
+		MySpaceHandler.domain = domain;
 	}
 
 	@Override

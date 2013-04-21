@@ -2,8 +2,9 @@ package me.thinkjet.common;
 
 import me.thinkjet.auth.AuthInterceptor;
 import me.thinkjet.auth.AuthPlugin;
-import me.thinkjet.handler.UserSpaceHandler;
+import me.thinkjet.handler.MySpaceHandler;
 import me.thinkjet.utils.AutoBindRoutes;
+import me.thinkjet.utils.JettyServer;
 
 import com.alibaba.druid.filter.stat.StatFilter;
 import com.alibaba.druid.wall.WallFilter;
@@ -13,7 +14,6 @@ import com.jfinal.config.Interceptors;
 import com.jfinal.config.JFinalConfig;
 import com.jfinal.config.Plugins;
 import com.jfinal.config.Routes;
-import com.jfinal.core.JFinal;
 import com.jfinal.ext.handler.RenderingTimeHandler;
 import com.jfinal.ext.plugin.sqlinxml.SqlInXmlPlugin;
 import com.jfinal.ext.plugin.tablebind.AutoTableBindPlugin;
@@ -98,13 +98,14 @@ public class Config extends JFinalConfig {
 	 */
 	@Override
 	public void configHandler(Handlers me) {
-		me.add(new UserSpaceHandler("my.siyanjing.com"));
+		me.add(new MySpaceHandler("my.siyanjing.com"));
 		me.add(new RenderingTimeHandler());
 		me.add(new DruidStatViewHandler("/druid"));
 
 	}
 
 	public static void main(String[] args) {
-		JFinal.start("WebRoot", 80, "/", 1);
+		//JFinal.start("WebRoot", 80, "/", 1);
+		new JettyServer("WebRoot", 80, "/", 1).start();
 	}
 }
