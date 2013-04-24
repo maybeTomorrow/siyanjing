@@ -101,7 +101,6 @@ public class Config extends JFinalConfig {
 		me.add(new MySpaceHandler("my.siyanjing.com"));
 		me.add(new RenderingTimeHandler());
 		me.add(new DruidStatViewHandler("/druid"));
-
 	}
 
 	public static void main(String[] args) {

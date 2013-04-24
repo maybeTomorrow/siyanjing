@@ -3,6 +3,16 @@
     height: 50px;
     background-color: #fff;
     border-bottom: 2px solid #4bbdf2;
+	
+}
+
+#admin_header span.title {
+	font-size:14px;
+	font-weight:bold;
+}
+
+#admin_header .tool{
+	
 }
 
 #admin_sider {
