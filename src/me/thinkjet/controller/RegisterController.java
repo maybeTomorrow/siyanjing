@@ -57,7 +57,7 @@ public class RegisterController extends Controller {
 			users.set("verify", null).set("verified", 1).update();
 		else
 			this.render("error.html");
-		this.render("/WEB-INF/views/login.html");
+		this.render("/WEB-INF/views/profile/login.html");
 	}
 
 }
