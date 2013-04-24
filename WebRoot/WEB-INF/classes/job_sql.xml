@@ -1,5 +1,7 @@
 <sqlGroup name="job">
-
+<sql id="findOneById">
+select U.username authorname,J.*,R.views,R.comments from users U, job J left join job_record R on J.id=R.id where U.id=J.author and J.id= ?
+</sql>
     <sql id="findListForIndex">
         select J.*,R.views,R.comments from job J left join job_record R on J.id=R.id order by J.id asc limit 0,10
     </sql>

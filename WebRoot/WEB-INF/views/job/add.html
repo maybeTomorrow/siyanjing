@@ -1,6 +1,6 @@
 <#include "/layout/_layout.html" /> <@head title="首页|四眼井|互联网人的乐园 ">
-</@head> <@body> <#include "/layout/_nav.html" /><@nav 5/>
-<div class="container clearfix">
+</@head> <@body>
+<div class=" clearfix">
 	<div class="ui-grid-19">
 		<div class="mgl-20">
 			<div class="ui-box">
@@ -31,7 +31,27 @@
 								type="text" name="job.recruiting_numbers">
 						</div>
 						<div class="ui-form-item">
-							<label class="ui-label"><span class="lable">职位类别：</span></label></label> <select
+							<label class="ui-label"><span class="lable">学历要求:</span></label><select
+								class="ui-select" name="job.education">
+								<option value="0">无</option>
+								<option value="1">大专</option>
+								<option value="2">本科</option>
+								<option value="3">研究生</option>
+								<option value="4">硕士</option>
+								<option value="5">博士</option>
+								</select>
+						</div>
+							<div class="ui-form-item">
+							<label class="ui-label"><span class="lable">工作经验:</span></label><select
+								class="ui-select" name="job.experience">
+								<option value="0">无经验要求</option>
+								<option value="1">1~3年</option>
+								<option value="2">3~5年</option>
+								<option value="3">5~10年</option>
+								</select>
+						</div>
+						<div class="ui-form-item">
+							<label class="ui-label"><span class="lable">职位类别：</span></label><select
 								class="ui-select" name="job.type">
 								<option value="0">请选择职位类别:</option>
 								<option value="1">.NET程序员</option>

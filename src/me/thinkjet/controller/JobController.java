@@ -1,5 +1,7 @@
 package me.thinkjet.controller;
 
+import me.thinkjet.auth.AuthInterceptor;
+import me.thinkjet.auth.AuthManager;
 import me.thinkjet.interceptor.JobInterceptor;
 import me.thinkjet.interceptor.JobRecordInterceptor;
 import me.thinkjet.model.Job;
@@ -14,7 +16,6 @@ import com.jfinal.plugin.ehcache.CacheName;
 @ControllerBind(controllerKey = "/job", viewPath = "job")
 @Before(JobInterceptor.class)
 public class JobController extends Controller {
-	private static final String SESSION_ID = "syj_session_user";
 
 	@Before(CacheInterceptor.class)
 	@CacheName("job-index")
@@ -26,8 +27,7 @@ public class JobController extends Controller {
 
 	// 返回用户发布的所有招聘
 	public void findByUser() {
-		setAttr("joblist", Job.dao.find(SqlKit.sql("job.findByUser"), this
-				.getSession().getAttribute(SESSION_ID)));
+		setAttr("joblist", Job.dao.find(SqlKit.sql("job.findByUser"),AuthManager.getSession(this).getUser().getLong("id")));
 		render("job-user.html");
 	}
 
@@ -39,7 +39,7 @@ public class JobController extends Controller {
 	// 提交发布招聘
 	public void create() {
 		Job job = getModel(Job.class);
-		job.set("author", /* this.getSession().getAttribute(SESSION_ID) */1);
+		job.set("author", AuthManager.getSession(this).getUser().getLong("id"));
 		job.save();
 		render("index.html");
 	}
@@ -51,9 +51,9 @@ public class JobController extends Controller {
 	}
 
 	// 显示单条记录
-	@Before({ JobRecordInterceptor.class, CacheInterceptor.class })
+	@Before(JobRecordInterceptor.class)
 	public void show() {
-		setAttr("job", Job.dao.findById(getPara("id")));
+		setAttr("job", Job.dao.findFirst(SqlKit.sql("job.findOneById"),getPara("id")));
 	}
 
 	// 修改
@@ -64,7 +64,7 @@ public class JobController extends Controller {
 	// 搜索岗位
 	public void search() {
 		StringBuffer sql = new StringBuffer(
-				"select J.*,R.views,R.comments from job J left join jobrecord R on J.id=R.id where 1=1");
+				"select J.*,R.views,R.comments from job J left join job_record R on J.id=R.id where 1=1");
 		if (this.getPara("name") != null && !this.getPara("name").equals(""))
 			sql.append(" and J.name like '%" + this.getPara("name") + "%'");
 		if (this.getPara("type") != null && !this.getPara("type").equals(""))

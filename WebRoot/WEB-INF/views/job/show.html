@@ -12,11 +12,11 @@
 							<li>
 								<strong style="margin-left: 13px">发布者：</strong>
 								<a href="http://my.oschina.net/u/1030362">
-									Tinky
+									${job.authorname}
 								</a>
 							</li>
 							<li>
-								<strong>发布日期：</strong>&nbsp;${job.createtime?string("yyyy-MM-dd")}
+								<strong>发布日期：</strong>&nbsp; ${job.createtime?string("yyyy-MM-dd")}
 							</li>
 							<li>
 								<strong>工作地点：</strong>
@@ -58,11 +58,11 @@
 							</li>
 							<li>
 								<strong>学历要求： </strong>
-								专科
+								<script>disedu('${job.education}');</script>
 							</li>
 							<li>
 								<strong>工作经验： </strong>
-								无经验要求
+								<script>disexp('${job.experience}');</script>
 							</li>
 							<li>
 								<strong>工作性质： </strong>
@@ -101,5 +101,6 @@
 			</div>
 		</div>
 	</div>
+	<#include "/layout/job/rightmoudle.html">
 </div>
 </@body>
