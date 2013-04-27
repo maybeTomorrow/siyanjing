@@ -9,7 +9,7 @@ import com.jfinal.validate.Validator;
  * BlogValidator.
  */
 public class LoginValidator extends Validator {
-	private static String msg = "errormsg";
+	private static String msg = "error";
 
 	protected void validate(Controller c) {
 		validateRequiredString("users.username", msg, "请输入用户名！");
