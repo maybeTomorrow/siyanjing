@@ -91,7 +91,6 @@ public class AuthManager {
 				.getAttribute(SESSION_NAME);
 		if (hs != null) {
 			controller.setAttr("auth_user", hs);
-			System.out.println("add session to view");
 
 		}
 	}

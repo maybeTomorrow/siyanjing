@@ -60,6 +60,16 @@ public class LoginController extends Controller {
 			this.render("login.html");
 			return;
 		}
+		if (!u.getBoolean("enabled")) {
+			this.setAttr("error", "该帐号已经禁用");
+			this.render("login.html");
+			return;
+		}
+		if (!u.getBoolean("verified")) {
+			this.setAttr("error", "请先前往邮箱验证");
+			this.render("login.html");
+			return;
+		}
 		if (u.getStr("password").equals(
 				us.getEncodedPassword(this.getPara(PASSWD),
 						u.getStr("username")))) {
