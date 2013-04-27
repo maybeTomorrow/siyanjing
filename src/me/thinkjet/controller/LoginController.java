@@ -19,7 +19,6 @@ import com.jfinal.aop.Before;
 import com.jfinal.aop.ClearInterceptor;
 import com.jfinal.aop.ClearLayer;
 import com.jfinal.core.Controller;
-import com.jfinal.ext.plugin.sqlinxml.SqlKit;
 import com.jfinal.ext.render.CaptchaRender;
 import com.jfinal.ext.route.ControllerBind;
 import com.jfinal.kit.StringKit;
@@ -34,18 +33,21 @@ public class LoginController extends Controller {
 
 	public void index() {
 		String target = "/";
-		try {
-			target = URLEncoder.encode(this.getRequest().getHeader("referer"),
-					"UTF-8");
-		} catch (UnsupportedEncodingException e) {
-			e.printStackTrace();
+		if (this.getRequest().getHeader("referer") != null)
+			try {
+				target = URLEncoder.encode(
+						this.getRequest().getHeader("referer"), "UTF-8");
+			} catch (UnsupportedEncodingException e) {
+			}
+		else if (this.getPara("redirect") != null
+				&& !this.getPara("redirect").equals("")) {
+			try {
+				target = URLEncoder.encode(this.getPara("redirect"), "UTF-8");
+			} catch (UnsupportedEncodingException e) {
+			}
 		}
-		if (AuthManager.getSession(this) != null) {
-			this.redirect("/");
-		} else {
-			this.setAttr("redirect", target);
-			this.render("login.html");
-		}
+		this.setAttr("redirect", target);
+		this.render("login.html");
 	}
 
 	// 登录
@@ -58,11 +60,22 @@ public class LoginController extends Controller {
 			this.render("login.html");
 			return;
 		}
+		if (!u.getBoolean("enabled")) {
+			this.setAttr("error", "该帐号已经禁用");
+			this.render("login.html");
+			return;
+		}
+		if (!u.getBoolean("verified")) {
+			this.setAttr("error", "请先前往邮箱验证");
+			this.render("login.html");
+			return;
+		}
 		if (u.getStr("password").equals(
 				us.getEncodedPassword(this.getPara(PASSWD),
 						u.getStr("username")))) {
 			List<UserRole> urs = UserRole.dao.find(
-					SqlKit.sql("users.getUserRoleByUsername"), u.getLong("id"));
+					"select * from user_role where user_id = ?",
+					u.getLong("id"));
 			if (urs == null || urs.size() == 0) {
 				this.setAttr("error", "权限错误");
 				this.render("login.html");
@@ -93,6 +106,11 @@ public class LoginController extends Controller {
 			this.render("login.html");
 			return;
 		}
+	}
+
+	public void out() {
+		AuthManager.RemoveSession(this);
+		this.redirect("/");
 	}
 
 	// 验证码图片

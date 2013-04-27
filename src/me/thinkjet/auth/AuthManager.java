@@ -4,8 +4,6 @@ import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 import java.util.regex.Pattern;
 
-import javax.servlet.http.HttpSession;
-
 import me.thinkjet.controller.LoginController;
 
 import com.jfinal.core.Controller;
@@ -89,16 +87,21 @@ public class AuthManager {
 
 	public static void putSessionInView(Controller controller,
 			boolean createSession) {
-		HttpSession hs = controller.getSession(createSession);
+		AuthUser hs = (AuthUser) controller.getSession(createSession)
+				.getAttribute(SESSION_NAME);
 		if (hs != null) {
-			controller.setAttr("auth_user",
-					(AuthUser) hs.getAttribute(SESSION_NAME));
+			controller.setAttr("auth_user", hs);
 
 		}
 	}
 
 	public static void addSession(Controller controller, AuthUser authUser) {
 		controller.getSession().setAttribute(SESSION_NAME, authUser);
+	}
+
+	public static void RemoveSession(Controller controller) {
+		if (controller.getSession() != null)
+			controller.getSession().removeAttribute(SESSION_NAME);
 	}
 
 	public static AuthUser getSession(Controller controller) {

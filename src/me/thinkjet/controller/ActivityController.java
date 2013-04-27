@@ -2,6 +2,7 @@ package me.thinkjet.controller;
 
 import me.thinkjet.interceptor.ActivityInterceptor;
 import me.thinkjet.interceptor.JobRecordInterceptor;
+import me.thinkjet.model.Activity;
 import me.thinkjet.model.Job;
 
 import com.jfinal.aop.Before;
@@ -17,9 +18,9 @@ public class ActivityController extends Controller {
 	@Before(CacheInterceptor.class)
 	@CacheName("activity")
 	public void index() {
-		setAttr("activity_list", Job.dao.paginateByCache("activity",
-				"activity-index", this.getParaToInt("page", 1), 12, "select *",
-				"from activity"));
+		setAttr("activity_list", Activity.dao.paginateByCache("activity",
+				"activity-index" + this.getParaToInt("page", 1),
+				this.getParaToInt("page", 1), 12, "select *", "from activity"));
 	}
 
 	// 发布招聘
