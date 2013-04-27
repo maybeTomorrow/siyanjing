@@ -33,8 +33,9 @@
 		</ul>
 		<div class="ui-nav-login">
 			<#if auth_user??>
-				<a href="my.siyanjing.com/">${auth_user.user.username}</a>
-				<a href="my.siyanjing.com/${auth_user.user.username}">我的主页</a>
+				<a href="http://my.siyanjing.com/">${auth_user.user.username}</a>
+				<a href="http://my.siyanjing.com/${auth_user.user.username}">我的主页</a>
+				<a href="/login/out">退出</a>
 			<#else>
 				<a href="/login">
 					登录

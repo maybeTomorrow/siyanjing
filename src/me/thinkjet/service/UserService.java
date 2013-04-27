@@ -7,8 +7,6 @@ import me.thinkjet.utils.encoder.PasswordEncoder;
 
 import org.apache.commons.lang3.StringUtils;
 
-import com.jfinal.ext.plugin.sqlinxml.SqlKit;
-
 public class UserService {
 	/**
 	 * 
@@ -21,7 +19,6 @@ public class UserService {
 				.findUserByEmail(loginName) : this
 				.findUserByUsername(loginName);
 	}
-
 
 	public String getEncodedPassword(String password, String username) {
 		return PasswordEncoder.encode(password, username);
@@ -45,12 +42,13 @@ public class UserService {
 	}
 
 	public Users findUserByUsername(String username) {
-		return Users.dao.findFirst(SqlKit.sql("users.findOneByUsername"),
+		return Users.dao.findFirst("select * from users where username = ?",
 				username);
 	}
 
 	public Users findUserByEmail(String email) {
-		return Users.dao.findFirst(SqlKit.sql("users.findOneByUsername"), email);
+		return Users.dao
+				.findFirst("select * from users where email = ?", email);
 	}
 
 	public Users findUserByUId(Long uid) {
@@ -59,6 +57,10 @@ public class UserService {
 
 	public void UpdateUserStatus(Users u) {
 		u.set("lastlogin", new Date()).update();
+	}
+
+	public boolean checkExist(String name) {
+		return this.getUser(name) != null;
 	}
 
 }

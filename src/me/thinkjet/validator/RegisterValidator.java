@@ -10,7 +10,7 @@ import com.jfinal.validate.Validator;
  */
 public class RegisterValidator extends Validator {
 	private static String msg = "errormsg";
-	
+
 	protected void validate(Controller controller) {
 		validateRequiredString("users.username", msg, "请输入用户名！");
 		validateRequiredString("users.password", msg, "请输入密码!");
@@ -20,6 +20,6 @@ public class RegisterValidator extends Validator {
 
 	protected void handleError(Controller controller) {
 		controller.keepModel(Users.class);
-		controller.render("index.html");
+		controller.render("register.html");
 	}
 }

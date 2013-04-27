@@ -1,8 +1,26 @@
+*.pydevproject
+.metadata
+bin/
+tmp/
+*.bak
+*.swp
+*~.nib
+local.properties
+.loadpath
+
+.externalToolBuilders/
+
+*.launch
+
+Thumbs.db
+
+Desktop.ini
+
 *.class
 
-# Package Files #
+# Package Files
 *.war
 *.ear
 *.log
 *.tmp*
-classes
+classes/
