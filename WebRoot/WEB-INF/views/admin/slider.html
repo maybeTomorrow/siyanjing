@@ -1,28 +1,63 @@
 <#include "/layout/admin/_layout.html" /><@head title="四眼井-后台管理系统 "></@head><@body>
 <div class="ui-box">
 	<div class="ui-box-title">
-		<h3>xxx
-			<span style="">
-				（
-				<span id="J_module_myapp_count">
-					10
-				</span>）
-			</span>
-		</h3>
-		<a href="#" class="ui-box-title-more" title="管理我的应用">
-			More
-		</a>
+		<h3>首页滚动图</h3>
 	</div>
-	<div class="ui-box-container ui-box-content">
-		<ul class="ui-article-list">
-		<#list slider as slider>
-			<li class="ui-article-item">
-				<a href="#">
-					${slider.title}
-				</a>
-			</li>
-		</#list>
-		</ul>
+	<div class="ui-box-container ui-box-content ui-table-container">
+		<table class="ui-table">
+			<thead>
+				<tr>
+					<th>
+						标题
+					</th>
+					<th>
+						链接
+					</th>
+					<th>
+						优先级
+					</th>
+					<th>
+						操作
+					</th>
+				</tr>
+			</thead>
+			<tbody>
+				<#list slider as slider>
+				<tr>
+					<td>
+						${slider.title}
+					</td>
+					<td>
+						${slider.url}
+					</td>
+					<td>
+						${slider.priority}
+					</td>
+					<td>
+						<a href="javascript:void()" class="show_img" rel="${slider.img}">
+							显示图片
+						</a>|
+						<a href="#">
+							显示内容
+						</a>|
+						<a href="#">
+							修改
+						</a>
+					</td>
+				</tr>
+				</#list>
+			</tbody>
+		</table>
 	</div>
 </div>
 </@body>
+<@script>
+<script type="text/javascript">
+	seajs.use('powerFloat',function(e){
+		$('.show_img').powerFloat({
+			eventType: "click",
+			targetMode: "ajax"
+		});
+	});
+</script>
+</@script>
