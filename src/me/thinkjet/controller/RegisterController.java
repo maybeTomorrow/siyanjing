@@ -1,6 +1,8 @@
 package me.thinkjet.controller;
 
 import me.thinkjet.model.Users;
+import me.thinkjet.service.SysconfigKey;
+import me.thinkjet.service.SysconfigService;
 import me.thinkjet.service.UserService;
 import me.thinkjet.service.mail.EmailService;
 import me.thinkjet.utils.RandomStringGenerator;
@@ -21,17 +23,24 @@ public class RegisterController extends Controller {
 	private static String MSG = "errormsg";
 
 	public void index() {
-		this.render("register.html");
+		if (Boolean.parseBoolean(SysconfigService
+				.getValue(SysconfigKey.ALLOW_REGISTE))) {
+			this.render("register.html");
+		} else {
+			this.setAttr("invite_registe_msg",
+					SysconfigService.getValue(SysconfigKey.INVITE_REGISTE_MSG));
+			this.render("invite.html");
+		}
 	}
 
 	@Before(RegisterValidator.class)
 	public void verify() {
 		Users users = getModel(Users.class);
-		if (this.userService.findUserByEmail(users.getStr("email")) != null){
+		if (this.userService.findUserByEmail(users.getStr("email")) != null) {
 			this.setAttr(MSG, "邮箱已注册");
 			return;
 		}
-		if (this.userService.findUserByUsername(users.getStr("username")) != null){
+		if (this.userService.findUserByUsername(users.getStr("username")) != null) {
 			this.setAttr(MSG, "用户名已注册");
 			return;
 		}

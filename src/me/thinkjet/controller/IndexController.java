@@ -26,7 +26,8 @@ public class IndexController extends Controller {
 		this.setAttr("job", Job.dao.find(SqlKit.sql("job.findListForIndex")));
 		this.setAttr("news", News.dao.find(SqlKit.sql("news.findListForIndex")));
 		this.setAttr("Blog", Blog.dao.find(SqlKit.sql("blog.findListForIndex")));
-		this.setAttr("slider", Slider.dao.findByCache("index", "slider-index", "select * from slider limit 0,5"));
+		this.setAttr("slider", Slider.dao.findByCache("index", "slider-index",
+				"select * from slider limit 0,5"));
 	}
 
 }
