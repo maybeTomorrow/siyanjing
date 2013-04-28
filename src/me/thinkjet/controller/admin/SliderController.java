@@ -15,5 +15,10 @@ public class SliderController extends Controller {
 				Slider.dao.find("select * from slider order by id asc"));
 		this.render("slider.html");
 	}
+	
+	public void show(){
+		this.setAttr("slider", Slider.dao.findById(this.getPara()));
+		this.render("slider-show.html");
+	}
 
 }

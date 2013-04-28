@@ -25,7 +25,7 @@
 				<#list slider as slider>
 				<tr>
 					<td>
-						${slider.title}
+						<a href="/admin/slider/show/${slider.id}">${slider.title}</a>
 					</td>
 					<td>
 						${slider.url}
@@ -38,10 +38,7 @@
 							显示图片
 						</a>|
 						<a href="#">
-							显示内容
-						</a>|
-						<a href="#">
-							修改
+							删除
 						</a>
 					</td>
 				</tr>
@@ -50,14 +47,12 @@
 		</table>
 	</div>
 </div>
-</@body>
-<@script>
-<script type="text/javascript">
-	seajs.use('powerFloat',function(e){
-		$('.show_img').powerFloat({
-			eventType: "click",
-			targetMode: "ajax"
-		});
+</@body><@script><script type="text/javascript">
+	seajs.use('powerFloat', function(e){
+	    $('.show_img').powerFloat({
+	        eventType: "click",
+	        targetMode: "ajax"
+	    });
 	});
 </script>
 </@script>

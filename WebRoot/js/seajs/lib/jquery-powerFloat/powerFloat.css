@@ -1,33 +1,5 @@
 @charset "utf-8";
 /* powerFloat */
-body {
-    margin: 0;
-    font-size: 84%;
-    background: #eee;
-    color: #333;
-    font-family: Verdana, Geneva, sans-serif;
-}
-
-ul, ol, form, h1, h2, h3, h4, h5, h6, p {
-    padding: 0;
-    margin: 0;
-    list-style-type: none;
-}
-
-i, cite {
-    font-style: normal;
-}
-
-a {
-    color: #34538b;
-    text-decoration: underline;
-}
-
-a:hover {
-    color: #F30;
-    text-decoration: underline;
-}
-
 .l {
     float: left;
 }
@@ -38,10 +10,6 @@ a:hover {
 
 .cl {
     clear: both;
-}
-
-img {
-    border: 0;
 }
 
 .tc {

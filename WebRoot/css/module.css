@@ -391,6 +391,11 @@
     background-color:#FEFFC5;
 }
 
+/* 全边框*/
+.ui-table-border td,.ui-table-border tr,.ui-table-border th{
+	border:1px solid #d9d9d9;
+}
+
 /* 无边框table加上ui-table-noborder */
 .ui-table-noborder, .ui-table-noborder td, .ui-table-noborder tr, .ui-table-noborder th {
     border:none;
