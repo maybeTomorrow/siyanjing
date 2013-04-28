@@ -1,6 +1,5 @@
 package me.thinkjet.controller;
 
-import me.thinkjet.auth.AuthInterceptor;
 import me.thinkjet.auth.AuthManager;
 import me.thinkjet.interceptor.JobInterceptor;
 import me.thinkjet.interceptor.JobRecordInterceptor;
@@ -27,7 +26,9 @@ public class JobController extends Controller {
 
 	// 返回用户发布的所有招聘
 	public void findByUser() {
-		setAttr("joblist", Job.dao.find(SqlKit.sql("job.findByUser"),AuthManager.getSession(this).getUser().getLong("id")));
+		setAttr("joblist",
+				Job.dao.find(SqlKit.sql("job.findByUser"), AuthManager
+						.getSession(this).getUser().getLong("id")));
 		render("job-user.html");
 	}
 
@@ -53,7 +54,8 @@ public class JobController extends Controller {
 	// 显示单条记录
 	@Before(JobRecordInterceptor.class)
 	public void show() {
-		setAttr("job", Job.dao.findFirst(SqlKit.sql("job.findOneById"),getPara("id")));
+		setAttr("job",
+				Job.dao.findFirst(SqlKit.sql("job.findOneById"), getPara("id")));
 	}
 
 	// 修改
