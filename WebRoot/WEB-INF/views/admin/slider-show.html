@@ -1,0 +1,76 @@
+<#include "/layout/admin/_layout.html" /><@head title="四眼井-后台管理系统 "></@head><@body>
+<div class="ui-box">
+	<div class="ui-box-title">
+		<h3>首页滚动图</h3>
+	</div>
+	<div class="ui-box-container ui-box-content ui-table-container">
+		<table class="ui-table ui-table-border">
+			<thead>
+				<tr>
+					<td colspan="2">
+						首页slider显示>>查看
+						[<a href="/admin/slider">
+							返回
+						</a>]
+					</td>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>
+						标题
+					</td>
+					<td>
+						${slider.title}
+					</td>
+				</tr>
+				<tr>
+					<td>
+						链接
+					</td>
+					<td>
+						${slider.url}
+					</td>
+				</tr>
+				<tr>
+					<td>
+						优先级
+					</td>
+					<td>
+						${slider.priority}
+					</td>
+				</tr>
+				<tr>
+					<td>
+						内容摘要
+					</td>
+					<td>
+						${slider.content}
+					</td>
+				</tr>
+				<tr>
+					<td>
+						图片
+					</td>
+					<td>
+						<img src="${slider.img}"/>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						操作
+					</td>
+					<td>
+						<a href="">
+							修改
+						</a>|
+						<a href="">
+							删除
+						</a>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</div>
+</@body><@script></@script>
