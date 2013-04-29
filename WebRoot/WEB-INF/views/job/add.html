@@ -1,10 +1,10 @@
-<#include "/layout/_layout.html" /> <@head title="首页|四眼井|互联网人的乐园 ">
-</@head> <@body>
+<#include "/layout/_layout.html" /> <@head title="首页|四眼井|互联网人的乐园 "><script src="/js/job.js"></script>
+</@head> <@body 5>
 <div class=" clearfix">
 	<div class="ui-grid-19">
 		<div class="mgl-20">
-			<div class="ui-box">
-				<form action="/job/create" class="ui-form" method="post">
+			<div class="ui-box pd20">
+				<form action="/job/create" class="ui-form" method="post" id="add_form">
 					<fieldset>
 						<div class="ui-form-item">
 							<label class="ui-label"><span class="lable">标题：</span></label><input class="ui-input" type="text"
@@ -19,19 +19,19 @@
 								type="text" name="job.name">
 						</div>
 						<div class="ui-form-item">
-							<label class="ui-label"><span class="lable">公司名称:</span></label><input class="ui-input"
+							<label class="ui-label"><span class="lable">公司名称：</span></label><input class="ui-input"
 								type="text" name="job.company">
 						</div>
 						<div class="ui-form-item">
-							<label class="ui-label"><span class="lable">email:</span></label><input class="ui-input"
+							<label class="ui-label"><span class="lable">email：</span></label><input class="ui-input"
 								type="text" name="job.email">
 						</div>
 						<div class="ui-form-item">
-							<label class="ui-label"><span class="lable">招聘人数:</span></label><input class="ui-input"
+							<label class="ui-label"><span class="lable">招聘人数：</span></label><input class="ui-input"
 								type="text" name="job.recruiting_numbers">
 						</div>
 						<div class="ui-form-item">
-							<label class="ui-label"><span class="lable">学历要求:</span></label><select
+							<label class="ui-label"><span class="lable">学历要求：</span></label><select
 								class="ui-select" name="job.education">
 								<option value="0">无</option>
 								<option value="1">大专</option>
@@ -42,7 +42,7 @@
 								</select>
 						</div>
 							<div class="ui-form-item">
-							<label class="ui-label"><span class="lable">工作经验:</span></label><select
+							<label class="ui-label"><span class="lable">工作经验：</span></label><select
 								class="ui-select" name="job.experience">
 								<option value="0">无经验要求</option>
 								<option value="1">1~3年</option>
@@ -53,7 +53,7 @@
 						<div class="ui-form-item">
 							<label class="ui-label"><span class="lable">职位类别：</span></label><select
 								class="ui-select" name="job.type">
-								<option value="0">请选择职位类别:</option>
+								<option value="0">请选择职位类别</option>
 								<option value="1">.NET程序员</option>
 								<option value="2">PHP程序员</option>
 								<option value="3">Java程序员</option>
@@ -93,13 +93,12 @@
 							</select>
 						</div>
 						<div class="ui-form-item">
-							<label class="ui-label"><span class="lable">要求:</span></label>
+							<label class="ui-label"><span class="lable">要求：</span></label>
 							<textarea class="ui-textarea" name="job.content"></textarea>
 						</div>
 						<div class="ui-form-item">
 							<div class="ui-button ui-button-mblue">
-								<input class="ui-input" type="submit" class="ui-button-text"
-									value="提交">
+								<input class="ui-input" type="submit" value="提交">
 							</div>
 						</div>
 					</fieldset>
@@ -109,4 +108,9 @@
 	</div>
    <#include "/layout/job/rightmoudle.html">
 </div>
+	<script type="text/javascript">
+	$(document).ready(function(){
+	    $("#add_form").validate();
+	});
+</script>
 </@body>

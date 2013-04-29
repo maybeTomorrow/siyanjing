@@ -1,9 +1,12 @@
 package me.thinkjet.controller;
 
+import java.io.UnsupportedEncodingException;
+
 import me.thinkjet.auth.AuthManager;
 import me.thinkjet.interceptor.JobInterceptor;
 import me.thinkjet.interceptor.JobRecordInterceptor;
 import me.thinkjet.model.Job;
+import me.thinkjet.validator.JobValidator;
 
 import com.jfinal.aop.Before;
 import com.jfinal.core.Controller;
@@ -38,6 +41,7 @@ public class JobController extends Controller {
 	}
 
 	// 提交发布招聘
+	@Before(JobValidator.class)
 	public void create() {
 		Job job = getModel(Job.class);
 		job.set("author", AuthManager.getSession(this).getUser().getLong("id"));
@@ -64,7 +68,7 @@ public class JobController extends Controller {
 	}
 
 	// 搜索岗位
-	public void search() {
+	public void search() throws UnsupportedEncodingException {
 		StringBuffer sql = new StringBuffer(
 				"select J.*,R.views,R.comments from job J left join job_record R on J.id=R.id where 1=1");
 		if (this.getPara("name") != null && !this.getPara("name").equals(""))
@@ -74,6 +78,9 @@ public class JobController extends Controller {
 		if (this.getPara("salary") != null
 				&& !this.getPara("salary").equals(""))
 			sql.append(" and J.salary=" + this.getPara("salary"));
+	/*	if (this.getPara("city") != null
+				&& !this.getPara("city").equals(""))
+			sql.append(" and J.city =" +URLDecoder.decode(this.getPara("city"),"UTF-8"));*/
 		sql.append(" order by J.id asc limit 0,10");
 		setAttr("joblist", Job.dao.find(sql.toString()));
 		render("index.html");
