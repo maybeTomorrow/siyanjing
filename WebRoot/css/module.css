@@ -52,6 +52,34 @@
   text-decoration: none;
 }
 
+.btn-g.green {
+    background-color: #b1db28;
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#b1db28), to(#a3d042));
+  	background-image: -moz-linear-gradient(top, #b1db28, #a3d042);
+  	background-image: -ms-linear-gradient(top, #b1db28, #a3d042);
+  	background-image: -o-linear-gradient(top, #b1db28, #a3d042);
+  	background-image: -webkit-linear-gradient(top, #b1db28, #a3d042);
+  	background-image: linear-gradient(top, #b1db28, #a3d042);
+  	filter: progid:dximagetransform.microsoft.gradient(startColorStr='#b1db28', EndColorStr='#a3d042');
+  	border: 1px solid #b1db28;
+  	color: white;
+}
+.btn-g.green:hover {
+  color: white;
+  border: 1px solid #a3d049;
+  background-color: #a3d042;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#b1db28), to(#a3d042));
+  background-image: -webkit-linear-gradient(top, #b1db28, #a3d042);
+  background-image: -moz-linear-gradient(top, #b1db28, #a3d042);
+  background-image: -ms-linear-gradient(top, #b1db28, #a3d042);
+  background-image: -o-linear-gradient(top, #b1db28, #a3d042);
+  background-image: linear-gradient(top, #b1db28, #a3d042);
+  -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+  -moz-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+  text-decoration: none;
+}
+
 .btn-g.white {
   background-color: #f0f0f0;
   background-image: -webkit-gradient(linear, left top, left bottom, from(#f7f7f7), to(#e6e6e6));
@@ -340,13 +368,76 @@
     margin-right: 6px
 }
 
-/*table*/
-.ui-table {border-bottom:1px solid #c8c8c8;margin:0 auto;width: 100%;}
-.ui-table th { padding: 7px 9px; border-bottom: 1px solid #d9d9d9; background-color: #F6F6F6; background: -webkit-gradient(linear,left top,left bottom,from( #F8F8F8),to( #F2F2F2)); background: -moz-linear-gradient(top, #F8F8F8, #F2F2F2); filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#F8F8F8', endColorstr='#F2F2F2'); background: -o-linear-gradient(top, #F8F8F8, #F2F2F2); background: linear-gradient(top, #F8F8F8, #F2F2F2); }
-.ui-table td { padding: 8px 9px 7px; border-bottom: 1px solid #d9d9d9; }
-.ui-table caption{font-size:14px;font-weight:bold;padding:3px 0 10px 2px}
-.ui-table thead th{font-size:12px;background:#f5f5f5;color: #666;font-weight: bold;}
-.ui-table-align-right{text-align:right}
+/* alice.table 样式模块 */
+
+.ui-table {
+    border-collapse:collapse;
+    border:1px solid #ccc;
+    width:100%;
+    font-size: 12px;
+    text-align: left;    
+}
+.ui-table tr:nth-child(even),
+.ui-table-split /* 隔行换色效果 */,
+.ui-table-hover /* 用作表格行hover效果 */ {    
+    background-color:#FBFBFB;
+}
+.ui-table tr {
+    color:#808080;
+}
+.ui-table thead tr {
+    color:#666;
+}
+.ui-table thead {
+    color:#666;
+    background-color: #F6F6F6;    
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#F8F8F8', endColorstr='#F2F2F2');
+    background: -webkit-gradient(linear, left top, left bottom, from(#F8F8F8), to(#F2F2F2));
+    background: -moz-linear-gradient(top, #F8F8F8, #F2F2F2);
+    background: -o-linear-gradient(top, #F8F8F8, #F2F2F2);
+    background: linear-gradient(top, #F8F8F8, #F2F2F2);
+}
+.ui-table th {
+    padding:7px 9px;
+    border-bottom:1px solid #d9d9d9;
+    text-align: left;    
+}
+.ui-table td {
+    padding:8px 9px 7px;
+    border-bottom:1px solid #d9d9d9;
+}
+.ui-table th {
+    padding:7px 9px;
+}
+.ui-table tfoot td {
+    border-bottom:none;
+}
+.ui-table .ui-table-action {
+    background-color:#FFFFEF;
+}
+.ui-table .ui-table-selected {
+    background-color:#FEFFC5;
+}
+
+/* 全边框*/
+.ui-table-border td,.ui-table-border tr,.ui-table-border th{
+	border:1px solid #d9d9d9;
+}
+
+/* 无边框table加上ui-table-noborder */
+.ui-table-noborder, .ui-table-noborder td, .ui-table-noborder tr, .ui-table-noborder th {
+    border:none;
+    outline:none;
+}
+.ui-table-noborder .ui-table-split, .ui-table-noborder .ui-table-hover {
+    background-color:#f7f7f7;
+}
+/* 当table放在一个有边框的容器中时，比如ui-box，需要添加类名ui-table-inbox去掉本身的外框 */
+.ui-table-inbox {
+    border:none;
+    outline:none;
+}
+
 
 /*hr style*/
 .hr_nav {

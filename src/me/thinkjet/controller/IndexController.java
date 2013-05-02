@@ -4,6 +4,7 @@ import me.thinkjet.model.Activity;
 import me.thinkjet.model.Blog;
 import me.thinkjet.model.Job;
 import me.thinkjet.model.News;
+import me.thinkjet.model.Slider;
 
 import com.jfinal.aop.Before;
 import com.jfinal.core.Controller;
@@ -25,6 +26,8 @@ public class IndexController extends Controller {
 		this.setAttr("job", Job.dao.find(SqlKit.sql("job.findListForIndex")));
 		this.setAttr("news", News.dao.find(SqlKit.sql("news.findListForIndex")));
 		this.setAttr("Blog", Blog.dao.find(SqlKit.sql("blog.findListForIndex")));
+		this.setAttr("slider", Slider.dao.findByCache("index", "slider-index",
+				"select * from slider limit 0,5"));
 	}
 
 }

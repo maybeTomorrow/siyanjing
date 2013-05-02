@@ -8,12 +8,17 @@ import com.jfinal.ext.route.ControllerBind;
 /**
  * CommonController
  */
-@ControllerBind(controllerKey = "admin/slider", viewPath = "admin/")
+@ControllerBind(controllerKey = "admin/slider", viewPath = "admin/slider")
 public class SliderController extends Controller {
 	public void index() {
 		this.setAttr("slider",
 				Slider.dao.find("select * from slider order by id asc"));
-		this.render("slider.html");
+	}
+	
+	public void show(){
+		this.setAttr("slider", Slider.dao.findById(this.getPara()));
 	}
 
+	public void edit(){
+	}
 }

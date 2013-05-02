@@ -1,0 +1,58 @@
+<#include "/layout/admin/_layout.html" /><@head title="四眼井-后台管理系统 "></@head><@body>
+<div class="ui-box">
+	<div class="ui-box-title">
+		<h3>首页滚动图</h3>
+	</div>
+	<div class="ui-box-container ui-box-content ui-table-container">
+		<table class="ui-table">
+			<thead>
+				<tr>
+					<th>
+						标题
+					</th>
+					<th>
+						链接
+					</th>
+					<th>
+						优先级
+					</th>
+					<th>
+						操作
+					</th>
+				</tr>
+			</thead>
+			<tbody>
+				<#list slider as slider>
+				<tr>
+					<td>
+						<a href="/admin/slider/show/${slider.id}">${slider.title}</a>
+					</td>
+					<td>
+						${slider.url}
+					</td>
+					<td>
+						${slider.priority}
+					</td>
+					<td>
+						<a href="javascript:void()" class="show_img" rel="${slider.img}">
+							显示图片
+						</a>|
+						<a href="#">
+							删除
+						</a>
+					</td>
+				</tr>
+				</#list>
+			</tbody>
+		</table>
+	</div>
+</div>
+</@body><@script><script type="text/javascript">
+	seajs.use('powerFloat', function(e){
+	    $('.show_img').powerFloat({
+	        eventType: "click",
+	        targetMode: "ajax"
+	    });
+	});
+</script>
+</@script>

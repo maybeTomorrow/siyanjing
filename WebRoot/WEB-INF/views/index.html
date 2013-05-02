@@ -6,34 +6,19 @@
 		<div id="slider">
 			<div id="switchable-content">
 				<ul>
-					<li class="clearfix item active">
+					<#list slider as slider>
+					<li class="clearfix item <#if slider_index==0>active</#if>">
 						<a class="fn-left" href="#">
-							<img src="http://myjpg.qire123.com:84/myupload/newpic/files/201302/19/512335911037f.jpg">
+							<img src="${slider.img}">
 						</a>
 						<div class="caption">
 							<h3>
 								<a href="#">
-									卡拉ok
+									${slider.title}
 								</a>
 							</h3>
 							<p>
-								《大话西游之除魔传奇》是电影《大话西游》的一个续集。该片继续由喜剧之王周星驰担任主演，故事围绕年少时期
-							</p>
-						</div>
-					</li>
-					<#list 1..4 as i>
-					<li class="clearfix item">
-						<a class="fn-left" href="#">
-							<img src="http://myjpg.qire123.com:84/myupload/newpic/files/201302/19/512335911037f.jpg">
-						</a>
-						<div class="caption">
-							<h3>
-								<a href="#">
-									卡拉ok ${i}
-								</a>
-							</h3>
-							<p>
-								《大话西游之除魔传奇》是电影《大话西游》的一个续集。该片继续由喜剧之王周星驰担任主演，故事围绕年少时期
+								${slider.content}
 							</p>
 						</div>
 					</li>
@@ -47,17 +32,11 @@
 				</a>
 			</div>
 			<ol id="switchable-nav">
+				<#list slider as slider_min>
 				<li>
 					<a target="_blank" href="javascript:void();">
-						<span class="trans_cover active"></span>
-						<img src="http://myjpg.qire123.com:84/myupload/newpic/files/201302/19/512335911037f.jpg" alt="">
-					</a>
-				</li>
-				<#list 1..4 as i>
-				<li>
-					<a target="_blank" href="javascript:void();">
-						<span class="trans_cover"></span>
-						<img src="http://myjpg.qire123.com:84/myupload/newpic/files/201302/19/512335911037f.jpg" alt="">
+						<span class="trans_cover <#if slider_min_index==0>active</#if>"></span>
+						<img src="${slider_min.img}" alt="">
 					</a>
 				</li>
 				</#list>
@@ -69,45 +48,13 @@
 			<div class="ui-grid-9">
 				<div class="ui-box">
 					<div class="ui-box-title">
-							<h3>xxx
-								<span style="">
-									（
-									<span>
-										10
-									</span>）
-								</span>
-							</h3>
+							<h3>最新资讯</h3>
 							<a href="#" class="ui-box-title-more" title="管理我的应用">
 								More
 							</a>
 					</div>
 					<div class="ui-box-container ui-box-content">
 						<ul class="ui-article-list">
-							<li class="ui-article-item">
-								<a href="#">
-									LinkedIn 实时低延迟数据抓取系统 Databus 开源
-								</a>
-							</li>
-							<li class="ui-article-item">
-								<a href="#">
-									LinkedIn 实时低延迟数据抓取系统 Databus 开源
-								</a>
-							</li>
-							<li class="ui-article-item">
-								<a href="#">
-									LinkedIn 实时低延迟数据抓取系统 Databus 开源
-								</a>
-							</li>
-							<li class="ui-article-item">
-								<a href="#">
-									LinkedIn 实时低延迟数据抓取系统 Databus 开源
-								</a>
-							</li>
-							<li class="ui-article-item">
-								<a href="#">
-									LinkedIn 实时低延迟数据抓取系统 Databus 开源
-								</a>
-							</li>
 							<li class="ui-article-item">
 								<a href="#">
 									LinkedIn 实时低延迟数据抓取系统 Databus 开源
@@ -120,45 +67,13 @@
 			<div class="ui-grid-9">
 				<div class="ui-box">
 					<div class="ui-box-title">
-							<h3>xxx
-								<span style="">
-									（
-									<span id="J_module_myapp_count">
-										10
-									</span>）
-								</span>
-							</h3>
+							<h3>活动动态</h3>
 							<a href="#" class="ui-box-title-more" title="管理我的应用">
 								More
 							</a>
 					</div>
 					<div class="ui-box-container ui-box-content">
 						<ul class="ui-article-list">
-							<li class="ui-article-item">
-								<a href="#">
-									LinkedIn 实时低延迟数据抓取系统 Databus 开源
-								</a>
-							</li>
-							<li class="ui-article-item">
-								<a href="#">
-									LinkedIn 实时低延迟数据抓取系统 Databus 开源
-								</a>
-							</li>
-							<li class="ui-article-item">
-								<a href="#">
-									LinkedIn 实时低延迟数据抓取系统 Databus 开源
-								</a>
-							</li>
-							<li class="ui-article-item">
-								<a href="#">
-									LinkedIn 实时低延迟数据抓取系统 Databus 开源
-								</a>
-							</li>
-							<li class="ui-article-item">
-								<a href="#">
-									LinkedIn 实时低延迟数据抓取系统 Databus 开源
-								</a>
-							</li>
 							<li class="ui-article-item">
 								<a href="#">
 									LinkedIn 实时低延迟数据抓取系统 Databus 开源
@@ -171,14 +86,7 @@
 			<div class="ui-grid-18">
 				<div class="ui-box">
 					<div class="ui-box-title">
-							<h3>xxx
-								<span style="">
-									（
-									<span id="J_module_myapp_count">
-										10
-									</span>）
-								</span>
-							</h3>
+							<h3>讨论区</h3>
 							<a href="#" class="ui-box-title-more" title="管理我的应用">
 								More
 							</a>
@@ -190,26 +98,20 @@
 									LinkedIn 实时低延迟数据抓取系统 Databus 开源
 								</a>
 							</li>
-							<li class="ui-article-item">
-								<a href="#">
-									LinkedIn 实时低延迟数据抓取系统 Databus 开源
-								</a>
-							</li>
-							<li class="ui-article-item">
-								<a href="#">
-									LinkedIn 实时低延迟数据抓取系统 Databus 开源
-								</a>
-							</li>
-							<li class="ui-article-item">
-								<a href="#">
-									LinkedIn 实时低延迟数据抓取系统 Databus 开源
-								</a>
-							</li>
-							<li class="ui-article-item">
-								<a href="#">
-									LinkedIn 实时低延迟数据抓取系统 Databus 开源
-								</a>
-							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<div class="ui-grid-18">
+				<div class="ui-box">
+					<div class="ui-box-title">
+							<h3>招聘</h3>
+							<a href="#" class="ui-box-title-more" title="管理我的应用">
+								More
+							</a>
+					</div>
+					<div class="ui-box-container ui-box-content">
+						<ul class="ui-article-list">
 							<li class="ui-article-item">
 								<a href="#">
 									LinkedIn 实时低延迟数据抓取系统 Databus 开源
@@ -221,7 +123,7 @@
 			</div>
 		</div>
 	</div>
-	<div class="ui-grid-6 people-panel">
+	<div class="ui-grid-6">
 		<div class="ui-box" id="peopleNav">
 			<div class="ui-box-title">
 					<h3>people
@@ -282,7 +184,7 @@
 			</div>
 		</div>
 	</div>
-	<div class="ui-grid-6 people-panel">
+	<div class="ui-grid-6">
 		<div class="ui-box" id="peopleNav">
 			<div class="ui-box-title">
 					<h3>people
@@ -343,7 +245,7 @@
 			</div>
 		</div>
 	</div>
-	<div class="ui-grid-6 people-panel">
+	<div class="ui-grid-6">
 		<div class="ui-box" id="peopleNav">
 			<div class="ui-box-title">
 					<h3>people
@@ -466,3 +368,5 @@
 		</div>
 	</div>
 </@body>
+<@script>
+</@script>

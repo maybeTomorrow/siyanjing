@@ -1,10 +1,13 @@
 package me.thinkjet.controller;
 
 import me.thinkjet.model.Users;
+import me.thinkjet.service.SysconfigKey;
+import me.thinkjet.service.SysconfigService;
 import me.thinkjet.service.UserService;
 import me.thinkjet.service.mail.EmailService;
-import me.thinkjet.utils.RandomStringGenerator;
 import me.thinkjet.validator.RegisterValidator;
+
+import org.apache.commons.lang3.RandomStringUtils;
 
 import com.jfinal.aop.Before;
 import com.jfinal.core.Controller;
@@ -17,35 +20,45 @@ import com.jfinal.ext.route.ControllerBind;
 public class RegisterController extends Controller {
 
 	private UserService userService = new UserService();
-	private EmailService eService = new EmailService();
+	private EmailService emailService = new EmailService();
 	private static String MSG = "errormsg";
 
 	public void index() {
-		this.render("register.html");
+		if (Boolean.parseBoolean(SysconfigService
+				.getValue(SysconfigKey.ALLOW_REGISTE))) {
+			this.render("register.html");
+		} else {
+			this.setAttr("invite_registe_msg",
+					SysconfigService.getValue(SysconfigKey.INVITE_REGISTE_MSG));
+			this.render("invite.html");
+		}
 	}
 
 	@Before(RegisterValidator.class)
 	public void verify() {
 		Users users = getModel(Users.class);
-		if (this.userService.findUserByEmail(users.getStr("email")) != null){
+		if (this.userService.findUserByEmail(users.getStr("email")) != null) {
 			this.setAttr(MSG, "邮箱已注册");
+			return;
 		}
-		if (this.userService.findUserByUsername(users.getStr("username")) != null)
+		if (this.userService.findUserByUsername(users.getStr("username")) != null) {
 			this.setAttr(MSG, "用户名已注册");
+			return;
+		}
 		users.put("verified", 0)
-				.put("verify", new RandomStringGenerator().getNewString())
-				.put("name", "");
-		eService.registerSender(
+				.put("verify", RandomStringUtils.random(50, true, true))
+				.put("name", users.getStr("username"));
+		this.userService.createUser(users);
+		emailService.registerSender(
 				users.getStr("username") + "-" + users.getStr("verify"),
 				users.getStr("email"));
-		this.userService.createUser(users);
 		this.setAttr("username", users.getStr("username"));
 		this.render("check.html");
 	}
 
 	public void reverify() {
 		Users users = this.userService.findUserByUsername(getPara(0));
-		eService.registerSender(
+		emailService.registerSender(
 				users.getStr("username") + "-" + users.getStr("verify"),
 				users.getStr("email"));
 		this.render("check.html");
