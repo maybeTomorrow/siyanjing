@@ -1,10 +1,11 @@
 package me.thinkjet.controller;
 
+import java.io.File;
+
 import me.thinkjet.service.upyun.UploadService;
 
 import com.jfinal.core.Controller;
 import com.jfinal.ext.route.ControllerBind;
-import com.jfinal.upload.UploadFile;
 
 /**
  * CommonController
@@ -12,15 +13,29 @@ import com.jfinal.upload.UploadFile;
 @ControllerBind(controllerKey = "/upload", viewPath = "")
 public class UploadController extends Controller {
 	public void file() {
-		UploadFile file = this.getFile();
-		String url = UploadService.uplaodFile(file.getFile());
-		this.renderText(url);
+		File file = this.getFile().getFile();
+		String url = UploadService.uplaodFile(file);
+		file.delete();
+		if (url != null) {
+			this.setAttr("error", 0);
+			this.setAttr("url", url);
+		} else {
+			this.setAttr("error", 1);
+		}
+		this.renderJson();
 	}
 
 	public void img() {
-		UploadFile file = this.getFile();
-		String url = UploadService.uplaodFile(file.getFile());
-		this.renderText(url);
+		File file = this.getFile().getFile();
+		String url = UploadService.uploadImg(file);
+		file.delete();
+		if (url != null) {
+			this.setAttr("error", 0);
+			this.setAttr("url", url);
+		} else {
+			this.setAttr("error", 1);
+		}
+		this.renderJson();
 	}
 
 }
