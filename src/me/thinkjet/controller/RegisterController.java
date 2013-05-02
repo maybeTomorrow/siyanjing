@@ -5,8 +5,9 @@ import me.thinkjet.service.SysconfigKey;
 import me.thinkjet.service.SysconfigService;
 import me.thinkjet.service.UserService;
 import me.thinkjet.service.mail.EmailService;
-import me.thinkjet.utils.RandomStringGenerator;
 import me.thinkjet.validator.RegisterValidator;
+
+import org.apache.commons.lang3.RandomStringUtils;
 
 import com.jfinal.aop.Before;
 import com.jfinal.core.Controller;
@@ -45,7 +46,7 @@ public class RegisterController extends Controller {
 			return;
 		}
 		users.put("verified", 0)
-				.put("verify", new RandomStringGenerator().getNewString())
+				.put("verify", RandomStringUtils.random(50, true, true))
 				.put("name", users.getStr("username"));
 		this.userService.createUser(users);
 		emailService.registerSender(

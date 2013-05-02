@@ -1,0 +1,20 @@
+<#include "/layout/admin/_layout.html" /><@head title="四眼井-后台管理系统 "></@head><@body>
+<div class="ui-box">
+    <div class="ui-box-title">
+        <h3>首页滚动图</h3>
+    </div>
+    <div class="ui-box-container ui-box-content ui-table-container">
+        <textarea id="editor_id" name="content" style="width:700px;height:300px;">
+            &lt;strong&gt;HTML内容&lt;/strong&gt;
+        </textarea>
+    </div>
+</div>
+</@body><@script>
+<script type="text/javascript">
+    seajs.use('kindeditor', function(KindEditor){
+        KindEditor.ready(function(K){
+            K.create('#editor_id');
+        });
+    });
+</script>
+</@script>
