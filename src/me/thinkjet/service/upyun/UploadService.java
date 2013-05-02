@@ -78,7 +78,7 @@ public class UploadService {
 	 */
 	public static String uplaodFileToLocal(File file) {
 		Calendar calender = Calendar.getInstance();
-		String filePath = "/uploads/files/" + calender.get(Calendar.YEAR) + "/"
+		String filePath = "/upload/files/" + calender.get(Calendar.YEAR) + "/"
 				+ (calender.get(Calendar.MONTH) + 1);
 		String file_name = new Date().getTime()
 				+ RandomStringUtils.randomNumeric(10)
@@ -100,7 +100,7 @@ public class UploadService {
 	 */
 	public static String uplaodImgToLocal(File img) {
 		Calendar calender = Calendar.getInstance();
-		String filePath = "/uploads/imgs/" + calender.get(Calendar.YEAR) + "/"
+		String filePath = "/upload/imgs/" + calender.get(Calendar.YEAR) + "/"
 				+ (calender.get(Calendar.MONTH) + 1);
 		String file_name = new Date().getTime()
 				+ RandomStringUtils.randomNumeric(10)
