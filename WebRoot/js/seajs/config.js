@@ -17,7 +17,9 @@ seajs.config({
 			src:'lib/jquery-powerFloat/jquery-powerFloat.js',
 			deps:['jquery','lib/jquery-powerFloat/powerFloat.css'],
 			exports:'powerFloat'
-		}
+		},
+		
+		'kindeditor':'lib/kindeditor/kindeditor-min.js'
     
     },
     

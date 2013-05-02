@@ -11,9 +11,10 @@ import me.thinkjet.model.UserRole;
 import me.thinkjet.model.Users;
 import me.thinkjet.service.UserService;
 import me.thinkjet.service.mail.EmailService;
-import me.thinkjet.utils.RandomStringGenerator;
 import me.thinkjet.validator.LoginValidator;
 import me.thinkjet.validator.ResetpwdValidator;
+
+import org.apache.commons.lang3.RandomStringUtils;
 
 import com.jfinal.aop.Before;
 import com.jfinal.aop.ClearInterceptor;
@@ -116,7 +117,7 @@ public class LoginController extends Controller {
 	// 验证码图片
 	@ClearInterceptor(ClearLayer.ALL)
 	public void img() {
-		String random = new RandomStringGenerator().getNewString();
+		String random = RandomStringUtils.random(30, true, true);
 		this.setCookie("randomStr", random, 15);
 		CaptchaRender img = new CaptchaRender(random);
 		render(img);
