@@ -16,7 +16,7 @@ public class UploadService {
 	private static final String FILE_DOMAIN = "http://cdn.siyanjing.net";
 	private static final String IMG_DOMAIN = "http://img.siyanjing.net";
 
-	public static String uplaodFile(File file) {
+	public static String uplaodFileToUpyun(File file) {
 		UpYun upyun = new UpYun(FILE_BUCKET_NAME, USER_NAME, USER_PWD);
 		Calendar calender = Calendar.getInstance();
 		boolean result = false;
@@ -36,7 +36,7 @@ public class UploadService {
 		}
 	}
 
-	public static String uploadImg(File img) {
+	public static String uploadImgToUpyun(File img) {
 		Calendar calender = Calendar.getInstance();
 		String filePath = "/" + calender.get(Calendar.YEAR) + "/"
 				+ (calender.get(Calendar.MONTH) + 1) + "/"

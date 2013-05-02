@@ -14,7 +14,7 @@ import com.jfinal.ext.route.ControllerBind;
 public class UploadController extends Controller {
 	public void file() {
 		File file = this.getFile().getFile();
-		String url = UploadService.uplaodFile(file);
+		String url = UploadService.uplaodFileToUpyun(file);
 		file.delete();
 		if (url != null) {
 			this.setAttr("error", 0);
@@ -27,7 +27,7 @@ public class UploadController extends Controller {
 
 	public void img() {
 		File file = this.getFile().getFile();
-		String url = UploadService.uploadImg(file);
+		String url = UploadService.uploadImgToUpyun(file);
 		file.delete();
 		if (url != null) {
 			this.setAttr("error", 0);
