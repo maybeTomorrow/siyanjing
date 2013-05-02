@@ -380,6 +380,48 @@ CREATE TABLE `user_role` (
 -- Dumping data for table `user_role`
 --
 
+CREATE TABLE `activity_photo` (
+  `id` bigint(20) NOT NULL,
+  `activity_id` bigint(20) NOT NULL,
+  `path` varchar(200) DEFAULT NULL,
+  `describ` varchar(500) DEFAULT NULL,
+  `activity_photocol` varchar(45) DEFAULT NULL,
+  `activity_photocol1` varchar(45) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `fk_idx` (`activity_id`),
+  CONSTRAINT `photo` FOREIGN KEY (`activity_id`) REFERENCES `activity` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+CREATE TABLE `activity_summary` (
+  `id` bigint(20) NOT NULL,
+  `activity_id` bigint(20) NOT NULL,
+  `content` longtext,
+  PRIMARY KEY (`id`),
+  KEY `fk_idx` (`activity_id`),
+  CONSTRAINT `fk` FOREIGN KEY (`activity_id`) REFERENCES `activity` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+CREATE TABLE `tags` (
+  `id` bigint(20) NOT NULL,
+  `name` varchar(45) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+CREATE TABLE `activity_tags` (
+  `id` bigint(20) NOT NULL,
+  `activity_id` bigint(20) NOT NULL,
+  `tag_id` bigint(20) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `activ_idx` (`activity_id`),
+  KEY `tag_idx` (`tag_id`),
+  CONSTRAINT `activ` FOREIGN KEY (`activity_id`) REFERENCES `activity` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `tag` FOREIGN KEY (`tag_id`) REFERENCES `tags` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
 LOCK TABLES `user_role` WRITE;
 /*!40000 ALTER TABLE `user_role` DISABLE KEYS */;
 INSERT INTO `user_role` VALUES (1,2,'ROLE_USER'),(2,6,'ROLE_ADMIN');
