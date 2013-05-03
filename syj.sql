@@ -56,8 +56,6 @@ CREATE TABLE `activity_photo` (
   `activity_id` bigint(20) NOT NULL,
   `path` varchar(200) DEFAULT NULL,
   `describ` varchar(500) DEFAULT NULL,
-  `activity_photocol` varchar(45) DEFAULT NULL,
-  `activity_photocol1` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `fk_idx` (`activity_id`),
   CONSTRAINT `photo` FOREIGN KEY (`activity_id`) REFERENCES `activity` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
