@@ -8,14 +8,15 @@ import com.jfinal.core.Controller;
 import com.jfinal.ext.route.ControllerBind;
 
 /**
- * CommonController
+ * kindeditor 专用 文件&图片上传实现
  */
 @ControllerBind(controllerKey = "/upload", viewPath = "")
 public class UploadController extends Controller {
 	public void file() {
 		File file = this.getFile().getFile();
-		String url = UploadService.uplaodFileToUpyun(file);
-		file.delete();
+		String url = UploadService.uplaodFileToLocal(file);
+		if (file.exists())
+			file.delete();
 		if (url != null) {
 			this.setAttr("error", 0);
 			this.setAttr("url", url);
@@ -27,8 +28,9 @@ public class UploadController extends Controller {
 
 	public void img() {
 		File file = this.getFile().getFile();
-		String url = UploadService.uploadImgToUpyun(file);
-		file.delete();
+		String url = UploadService.uplaodImgToLocal(file);
+		if (file.exists())
+			file.delete();
 		if (url != null) {
 			this.setAttr("error", 0);
 			this.setAttr("url", url);
