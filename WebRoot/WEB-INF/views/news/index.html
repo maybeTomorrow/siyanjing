@@ -1,0 +1,73 @@
+<#include "/layout/_layout.html" /><@head title="首页|四眼井|互联网人的乐园 "></@head><@body 1>
+<div id="main" class="ui-grid-19 ui-grid-right clearfix">
+	<div class="mgl-20">
+		<article class="ui-grid-17 ui-article-a">
+			<div class="date">
+				<span class="date-ym">
+					2013-3
+				</span>
+				<span class="date-d">
+					8
+				</span>
+			</div>
+			<h2>
+				<a href="#" target="_blank">
+					网页优化之减少往返时间(Minimize round-trip times)
+				</a>
+			</h2>
+			<div class="ui-article-info">
+				<span class="ui-category-icon">
+					<i class="icon icon-categroy "></i>
+					<a href="#">
+						web
+					</a>
+				</span>
+				<span class="ui-category-icon">
+					<a href="#">
+						web
+					</a>
+				</span>
+				<span class="ui-category-icon">
+					<a href="#">
+						web
+					</a>
+				</span>
+				<span class="ui-category-icon">
+					<a href="#">
+						web
+					</a>
+				</span>
+			</div>
+			<div class="thumbnail-box-big">
+				<div class="thumbnail">
+					<a href="http://www.ishenli.com/?p=165" rel="bookmark" target="_blank" title="网页优化之减少往返时间(Minimize round-trip times)">
+						<img src="http://bcs.duapp.com/wordpressblog/Google-Developers-Logo.png?sign=MBO:37605d0593028e53e3128f4dd3e3e64b:HkyX65fDOs3LgsIJucsPbtsp0BQ%3D" width="430" height="200" alt="网页优化之减少往返时间(Minimize round-trip times)" style="opacity: 1;">
+					</a>
+				</div>
+			</div>
+			<div class="thumbnail-txt">
+				<span>
+					上花费的时间，不包括数据传输的时间。但是它包括下载传输字节的时间(和带宽无关)。例如,浏览器开始第和服务器首次连接,它必定引发3个RTT:1个DNS解析的
+				</span>
+			</div>
+			<div class="ui-article-info">
+				<i class="icon icon-user"></i>
+				<span>
+					来源
+				</span>
+				<i class="icon icon-tag"></i>
+				<span>
+					标签
+				</span>
+			</div>
+			<div class="read-more">
+				<a href="#">
+					继续阅读 
+				</a>
+			</div>
+		</article>
+		<#include "/layout/_paginate.html" />
+		<@paginate currentPage=news.pageNumber totalPage=news.totalPage actionUrl="${base}/news/" />
+	</div>
+</div>
+</@body><@script></@script>
