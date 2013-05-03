@@ -495,30 +495,53 @@
     display: inline !important; /* fix ie6 鍙岃竟璺�bug */
 }
 
-.pagination{
-    margin: 9px 20px 5px 0;
-    font-size: 12px;
-    text-align: right;
+/*!
+ * 
+ *pagination
+ *
+ */
+.pagination {
+  height: 26px;
+  line-height: 26px;
+  color: #333;
+  margin: 5px auto;
+  text-align:center;
+  padding: 10px;
 }
-.pagination span,.pagination a{
-    width: 27px;
-    display: inline-block;
-    height: 27px;
-    line-height: 27px;
-    text-align: center;
-    border: 1px solid #00a4ef;
-    border-radius: 16px;
-    margin: 0px 3px;
-    text-decoration: none;
+.pagination a,.pagination span,
+.pagination a:visited {
+  text-decoration: none;
+  padding: 4px 7px;
+  _padding: 2px 7px 1px;
+  border: #CCCCCC 1px solid;
+  margin: 0 3px;
+  font-family: Tahoma;
+  color: #444;
 }
-.pagination .current {
-    color: #fff;
-    background: #00a4ef;
+.pagination a:hover {
+  background: #008BD3;
+  color: #ffffff;
 }
-.pagination a:hover{
-    color: #fff;
-    background: #00a4ef;
+.pagination .selected,
+.pagination .selected a,
+.pagination a:hover.selected,
+.pagination a:visited.selected {
+  background: #008BD3;
+  color: #fff;
+  padding: 4px 7px;
+  _padding: 2px 7px 1px;
+  border: #ccc 1px solid;
+  margin: 0 3px;
+  font-family: Tahoma;
 }
+.pagination input {
+  width: 30px;
+  border: 1px solid #ccc;
+  padding-top: 2px;
+  *padding-top: 2px;
+  margin: 0 3px -1px 3px;
+}
+
 /*杩斿洖椤堕儴*/
 #gotop {
     width: 54px;
@@ -589,25 +612,6 @@
     color: #777;
 }
 
-.read-more {
-    float: right;
-    display: inline;
-    width: 95px;
-    background: #00a4ef;
-    padding: 1px 5px 1px 4px;
-    margin-bottom: 3px;
-}
-.read-more a{
-    float: right;
-    font-size: 14px;
-    color: #FFF;
-    background: url("../assets/images/ReadMore.png") no-repeat;
-    background-position: right center;
-    padding: 5px 25px 5px 5px;
-    line-height: 18px;
-    height: 18px;
-}
-
 /*social buttons*/
 .ui-social-button {
     float: left;
@@ -634,38 +638,6 @@
     text-shadow: 0 1px 0 #fff;
 }
 
-.job-panel {
-    margin-bottom: 10px;
-    text-align: center;
-}
-.job-button{
-    display: block;
-    color: #fff;
-    font:800 24px "microsoft yahei";
-    text-decoration: none;
-    height: 40px;
-    line-height: 40px;
-}
-.job-button:hover{
-    text-decoration: none;
-    color: #fff;
-}
-.job-button-blue{
-    background-color: #0072BB;
-}
-.job-button-blue:hover{
-    background-color: #0072DD;
-}
-.job-button-red{
-    background-color: #CD4900;
-}
-.job-button-red:hover{
-    background-color: #DD4944;
-}
-
-.job-section {
-    padding: 20px;
-}
 .status{
     width: 23.5%;
     float: left;
@@ -678,26 +650,26 @@
 display: block;
 font-size: 15px;
 }
-/*鍥炬爣鎸夐挳*/
-.weibo a,.qq a,.douban a{
-    background: url(http://cyjs.qiniudn.com/assets/sns-icos-d6062e48f05f00ec9c9ad16ad93e1ee6.png) no-repeat;
+
+.weibo,.qq,.douban{
+    background: url(/images/sns-icos.png) no-repeat;
 }
-.weibo a{
+.weibo{
     background-position: -10px -188px;
 }
-.qq a{
+.qq{
     background-position: -70px -190px;
 }
-.douban a{
+.douban{
     background-position: -132px -188px;
 }
-.weibo a:hover {
+.weibo:hover {
     background-position: -10px -238px;
 }
-.qq a:hover {
+.qq:hover {
     background-position: -70px -240px;
 }
-.douban a:hover {
+.douban:hover {
     background-position: -132px -238px;
 }
 /*娴忚娆℃暟*/
@@ -722,46 +694,6 @@ font-size: 15px;
 .comments-num .ico {
     background-position: -48px 0;
     width: 19px;
-}
-
-/*浜や簰缁勪欢涔嬪够鐏墖绠�崟鐗堟湰*/
-.slider-btn .next,.slider-btn .prev{
-    margin-left: 5px;
-    display: inline-block;
-    width: 17px;
-    height: 16px;
-    text-indent: -9999px;
-    background: url(http://cyjs.qiniudn.com/assets/show-sprite-58f66b3e75687ab2a8c1027965c93c74.png) no-repeat;
-    cursor: pointer;
-}
-.slider-btn .prev {
-    background-position: 0 -2796px;
-}
-.slider-btn .prev.disabled {
-    background-position: 0 -2776px;
-}
-.slider-btn .next.disabled {
-    background-position: -24px -2776px;
-}
-.slider-btn .next {
-    background-position: -24px -2796px;
-}
-
-.ui-slider-item {
-    float: left;
-    margin-right: 30px;
-    position: relative;
-}
-
-.ui-slider-item,.ui-slider-item a{
-    width: 190px;
-    height: 160px;
-    overflow: hidden;
-    display: block;
-}
-.ui-slider-item a{
-    position: absolute;
-    text-indent: -9999px;
 }
 
 /*

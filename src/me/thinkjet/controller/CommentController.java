@@ -21,9 +21,9 @@ public class CommentController extends Controller {
 		this.setAttr("target", target);
 		this.setAttr("page", page);
 		this.setAttr("comment_list", Comment.dao.paginateByCache("comment",
-				target + "_" + page, page, 6, "select c.*,u.avatar",
-				"as avatar from comment c left join users u "
-						+ "on  c.comment_uname=u.username "
+				target + "_" + page, page, 6, "select c.*,u.avatar as avatar",
+				"from comment c left join users u "
+						+ "on c.comment_uname=u.username "
 						+"where c.target=? "
 						+ "order by c.id asc", target));
 		this.setAttr(
