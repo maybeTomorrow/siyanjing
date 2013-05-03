@@ -5,7 +5,4 @@
 	<sql id="findOneByEmail">
         select * from users where email = ?
     </sql>
-	<sql id="getUserRoleByUsername">
-        select * from user_role where user_id = ?
-    </sql>
 </sqlGroup>
