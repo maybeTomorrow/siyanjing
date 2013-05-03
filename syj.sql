@@ -32,7 +32,7 @@ CREATE TABLE `activity` (
   PRIMARY KEY (`id`),
   KEY `auth_idx` (`author`),
   CONSTRAINT `auth` FOREIGN KEY (`author`) REFERENCES `users` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -87,7 +87,7 @@ CREATE TABLE `activity_record` (
   PRIMARY KEY (`activity_id`),
   UNIQUE KEY `activity_id_UNIQUE` (`activity_id`),
   CONSTRAINT `avtivity_id` FOREIGN KEY (`activity_id`) REFERENCES `activity` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
