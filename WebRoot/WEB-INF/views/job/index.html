@@ -41,9 +41,9 @@
 						</div>
 						
 						<div class="ui-form-item">
-							<label class="ui-label"><span class="lable">城市：</span></label>
+							<label class="ui-label"><span class="lable">工作省市：</span></label>
 								
-				<select class="ui-select"  onchange="loadCity();" name="job.prv" id="addr_province">
+				<select class="ui-select"  onchange="loadCity();" name="prv" id="addr_province">
 	<option value="">-请选择省份/直辖市-</option>
 	<option value="北京">北京</option> 
 	<option value="上海">上海</option> 
@@ -82,16 +82,8 @@
 	<option value="海外">海外</option>
 </select>
 -
-<select class="ui-select" name="job.city" id="addr_city"><option value="" class="fdc" selected="">-请选择地区-</option><option value=""></option></select>
-<script src="/js/getcity.js"></script>
-<script>
-	$("#addr_city").prepend("<option value='' class='fdc' selected>-请选择地区-</option>");
-function loadCity(){
-	showcity($("#addr_province").val(), document.getElementById('addr_city'));
-			$(".fdc").remove();
-		$("#addr_city").prepend("<option value='' class='fdc' selected>-请选择地区-</option>");
-	}
-</script>
+<select class="ui-select" name="city" id="addr_city"><option value="" class="fdc" selected="">-请选择地区-</option><option value=""></option></select>
+
 			
 								
 								
@@ -126,7 +118,7 @@ function loadCity(){
 			<div class="ui-box clearfix">
         <h3 style="font-size:3em;padding:13px;">共查询到${count}个职位。</h3>
 				<#list joblist as job>
-				<div class="FilterPosition pd20">
+				<div class="FilterPosition ">
 					<div class="CoPart" style="float: right; color: gray;">
 						<span class="PoCount">评论(<span class="PsDetail"><a
 								href="/job/show?id=${job.id}#comment_display">${job.comments!"0"}</a></span>)
@@ -170,5 +162,14 @@ function loadCity(){
 	
 	<#include "/layout/job/rightmoudle.html">
 </div>
-
+<@script>
+<script>
+	$("#addr_city").prepend("<option value='' class='fdc' selected>-请选择地区-</option>");
+function loadCity(){
+	showcity($("#addr_province").val(), document.getElementById('addr_city'));
+			$(".fdc").remove();
+		$("#addr_city").prepend("<option value='' class='fdc' selected>-请选择地区-</option>");
+	}
+</script>
+</@script>
 </@body>

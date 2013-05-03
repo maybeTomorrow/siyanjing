@@ -82,6 +82,9 @@ public class JobController extends Controller {
 		if (this.getPara("salary") != null
 				&& !this.getPara("salary").equals(""))
 			sql.append(" and J.salary=" + this.getPara("salary"));
+		if (this.getPara("prv") != null
+				&& !this.getPara("prv").equals(""))
+			sql.append(" and J.prv ='" +this.getPara("prv")+"'");
 		if (this.getPara("city") != null
 				&& !this.getPara("city").equals(""))
 			sql.append(" and J.city ='" +this.getPara("city")+"'");
