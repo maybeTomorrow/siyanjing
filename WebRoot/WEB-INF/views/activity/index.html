@@ -9,17 +9,17 @@
                     <h3>xxx<span style="">（<span>10</span>）</span></h3>
                     <a href="#" class="ui-box-title-more" title="管理我的应用">More</a>
                 </div>
-                <div class="ui-box-container ui-box-content">
+                <div class="ui-box-content">
                 	<ul class="ui-article-list">
-                		 <#list activity_list as activity>
-							<li class="ui-article-item">
-								<a href="/activity/show?id=${activity.id}">
-									${activity.title}
+                		<#list activitylist.getList() as a>
+							<li>
+								<a href="/activity/show?id=${a.id}">
+									${a.title}
 								</a>
 							</li>
+						</#list>
 					</ul>
                 </div>
-                </#list>
             </div>
         </div>
     </div>

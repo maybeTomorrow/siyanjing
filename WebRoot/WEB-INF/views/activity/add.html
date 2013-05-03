@@ -1,25 +1,25 @@
 <#include "/layout/_layout.html" />
 <@head title="首页|四眼井|互联网人的乐园 "></@head>
 <@body>
-	<div style="width:500px;margin:20px auto">
-		<div class="ui-box">
+	<div style="width:500px;margin:20px;margin-left:100px">
+		<div class="ui-box"  style="width:800px;">
 			<div class="ui-box-title">
 				<h3>发布活动</h3>
 			</div>
 			<div class="ui-box-container ui-box-content">
 				<form action="/activity/create" method="post" class="ui-form">
 					${errormsg!}
-					<div class="ui-form-item">
+					<div class="ui-form-item" >
             			<label for="" class="ui-label">
                 			活动标题
             			</label>
-            			<input class="ui-input" type="text" name="activity.title">
+            			<input class="ui-input" type="text" name="activity.title" style="width:500px">
         			</div>
 					<div class="ui-form-item">
             			<label for="" class="ui-label">
                 			活动内容
             			</label>
-            			<textarea class="ui-input" name="activity.content"></textarea>
+            			<textarea id="editor" name="activity.content"></textarea>
         			</div>
 					<div class="ui-form-item">
 						<input type="submit" class="btn-g blue" value="发布">
@@ -29,3 +29,12 @@
 		</div>
 	</div>
 </@body>
+<@script>
+<script type="text/javascript">
+    seajs.use('kindeditor', function(KindEditor){
+        KindEditor.ready(function(K){
+            K.create('#editor');
+        });
+    });
+</script>
+</@script>
