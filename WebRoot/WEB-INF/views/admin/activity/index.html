@@ -1,0 +1,23 @@
+<#include "/layout/admin/_layout.html" /><@head title="四眼井-后台管理系统 "></@head><@body>
+<div class="ui-box">
+    <div class="ui-box-title">
+        <h3>xxx<span style="">（<span>10</span>）</span></h3>
+        <a href="/admin/activity/add" class="ui-box-title-more" title="发布活动">发布</a>
+    </div>
+    <div class="ui-box-content">
+        <ul class="ui-article-list">
+            <#list activitylist.getList() as a>
+            <li>
+                <a href="/admin/activity/show?id=${a.id}">${a.title}</a>
+            </li>
+            </#list>
+        </ul>
+    </div>
+    <div>
+        <#include "/layout/_paginate.html" />
+		<@paginate currentPage=activitylist.pageNumber totalPage=activitylist.totalPage actionUrl="/admin/activity?page="/>
+    </div>
+</div>
+</@body>
+<@script>
+</@script>

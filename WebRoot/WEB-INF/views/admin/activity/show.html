@@ -1,0 +1,32 @@
+<#include "/layout/admin/_layout.html" /><@head title="四眼井-后台管理系统 "></@head><@body>
+<div class="ui-box">
+    <div class="ui-box-title">
+        <h3>查看活动</h3>
+    </div>
+    <div class="ui-box-container ui-box-content">
+        <div class="ui-form">
+            <div class="ui-form-item">
+                <label for="" class="ui-label">
+                    活动标题
+                </label>
+                <div>
+                    ${a.title}
+                </div>
+            </div>
+            <div class="ui-form-item">
+                <label for="" class="ui-label">
+                    活动内容
+                </label>
+                <div>
+                    ${a.content}
+                </div>
+            </div>
+            <div class="ui-form-item">
+                <a href="/admin/activity/edit?id=${a.id}">edit</a>
+            </div>
+        </div>
+    </div>
+</div>
+</@body>
+<@script>
+</@script>

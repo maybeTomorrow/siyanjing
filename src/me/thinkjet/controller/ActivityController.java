@@ -14,33 +14,12 @@ public class ActivityController extends Controller {
 	@Before(CacheInterceptor.class)
 	@CacheName("activity")
 	public void index() {
+		int page = this.getParaToInt("page", 1);
 		setAttr("activitylist", Activity.dao.paginateByCache("activity",
-				"activity-index" + this.getParaToInt("page", 1),
-				this.getParaToInt("page", 1), 12, "select *", "from activity"));
-	}
-
-	public void add() {
-		render("add.html");
-	}
-
-	public void create() {
-		Activity a = getModel(Activity.class);
-		a.set("author", /* this.getSession().getAttribute(SESSION_ID) */1);
-		a.save();
-		render("index.html");
-	}
-
-	public void update() {
-		Activity a = getModel(Activity.class);
-		a.update();
-		render("show.html");
+				"activity_" + page, page, 4, "select *", "from activity order by id desc"));
 	}
 
 	public void show() {
-		setAttr("a", Activity.dao.findById(getPara("id")));
-	}
-
-	public void edit() {
 		setAttr("a", Activity.dao.findById(getPara("id")));
 	}
 

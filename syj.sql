@@ -26,12 +26,9 @@ DROP TABLE IF EXISTS `activity`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `activity` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
-  `title` varchar(45) NOT NULL,
-  `content` varchar(45) DEFAULT NULL,
-  `author` bigint(20) NOT NULL,
-  PRIMARY KEY (`id`),
-  KEY `auth_idx` (`author`),
-  CONSTRAINT `auth` FOREIGN KEY (`author`) REFERENCES `users` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+  `title` varchar(255) NOT NULL,
+  `content` LONGTEXT DEFAULT NULL,
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -71,57 +68,6 @@ LOCK TABLES `activity_photo` WRITE;
 /*!40000 ALTER TABLE `activity_photo` ENABLE KEYS */;
 UNLOCK TABLES;
 
---
--- Table structure for table `activity_record`
---
-
-DROP TABLE IF EXISTS `activity_record`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `activity_record` (
-  `activity_id` bigint(20) NOT NULL,
-  `views` int(11) DEFAULT '0',
-  `comments` int(11) DEFAULT '0',
-  PRIMARY KEY (`activity_id`),
-  UNIQUE KEY `activity_id_UNIQUE` (`activity_id`),
-  CONSTRAINT `avtivity_id` FOREIGN KEY (`activity_id`) REFERENCES `activity` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `activity_record`
---
-
-LOCK TABLES `activity_record` WRITE;
-/*!40000 ALTER TABLE `activity_record` DISABLE KEYS */;
-/*!40000 ALTER TABLE `activity_record` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `activity_summary`
---
-
-DROP TABLE IF EXISTS `activity_summary`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `activity_summary` (
-  `id` bigint(20) NOT NULL,
-  `activity_id` bigint(20) NOT NULL,
-  `content` longtext,
-  PRIMARY KEY (`id`),
-  KEY `fk_idx` (`activity_id`),
-  CONSTRAINT `fk` FOREIGN KEY (`activity_id`) REFERENCES `activity` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `activity_summary`
---
-
-LOCK TABLES `activity_summary` WRITE;
-/*!40000 ALTER TABLE `activity_summary` DISABLE KEYS */;
-/*!40000 ALTER TABLE `activity_summary` ENABLE KEYS */;
-UNLOCK TABLES;
 
 --
 -- Table structure for table `activity_tags`
