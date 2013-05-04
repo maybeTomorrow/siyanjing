@@ -1,7 +1,4 @@
 <sqlGroup name="activity">
-    <sql id="findListForIndex">
-        select A.*,R.* from activity A left join activity_record R on A.id=R.activity_id order by A.id asc limit 0,10
-    </sql>
     <sql id="findSummaryByAid">
         select * from activity_summary where activity_id = ?
     </sql>

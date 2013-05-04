@@ -21,13 +21,19 @@ public class IndexController extends Controller {
 	@Before(CacheInterceptor.class)
 	@CacheName("index")
 	public void index() {
+		System.out.println("index");
 		this.setAttr("activity",
 				Activity.dao.find(SqlKit.sql("activity.findListForIndex")));
+		System.out.println("index");
 		this.setAttr("job", Job.dao.find(SqlKit.sql("job.findListForIndex")));
+		System.out.println("index");
 		this.setAttr("news", News.dao.find(SqlKit.sql("news.findListForIndex")));
+		System.out.println("index");
 		this.setAttr("Blog", Blog.dao.find(SqlKit.sql("blog.findListForIndex")));
+		System.out.println("index");
 		this.setAttr("slider", Slider.dao.findByCache("index", "slider-index",
 				"select * from slider limit 0,5"));
+		System.out.println("index");
 	}
 
 }

@@ -1,38 +1,48 @@
 <div class="com_container">
 	<div class="com_header">
 		<span>
-			评论&nbsp;&nbsp;&nbsp;&nbsp;共${count}条评论
+			评论&nbsp;&nbsp;&nbsp;&nbsp;共${comment_list.totalRow}条评论
 		</span>
 		<a href="#add_comment">
 			发表评论
 		</a>
 	</div>
-	<#list comment_list.list as comment>
-	<div class="com_item clearfix">
-		<a href="http://my.siyanjing.com/${comment.comment_uname}" class="avatar">
-			<img src="<#if comment.avatar ??>${comment.avatar}<#else>/images/photo.jpg</#if>" width="34" height="34"/>
-		</a>
-		<div class="com_cnt">
-			<p class="meta">
-				${comment_index+1}楼：${comment.comment_unickname}&nbsp;&nbsp;发布于${comment.comment_date}
-				<a href="javascript:reply('${comment.comment_uname}','${comment.comment_unickname}')">
-					回复
-				</a>
-			</p>
-			<p class="cnt">
-				${comment.comment}
-			</p>
+	<div id="comment_content">
+		<#list comment_list.list as comment>
+		<div class="com_item clearfix">
+			<a href="http://my.siyanjing.com/${comment.comment_uname}" class="avatar">
+				<img src="<#if comment.avatar ??>${comment.avatar}<#else>/images/photo.jpg</#if>" width="34" height="34"/>
+			</a>
+			<div class="com_cnt">
+				<p class="meta">
+					${(comment_list.pageNumber-1)*comment_list.pageSize+comment_index+1}楼：${comment.comment_unickname}&nbsp;&nbsp;发布于${comment.comment_date}
+					<a href="javascript:reply('${comment.comment_uname}','${comment.comment_unickname}')">
+						回复
+					</a>
+				</p>
+				<p class="cnt">
+					${comment.comment}
+				</p>
+			</div>
+		</div>
+		</#list>
+		<div id="comment_page">
+			<#include "/layout/_paginate.html" />
+			<@paginate currentPage=comment_list.pageNumber totalPage=comment_list.totalPage actionUrl="javascript:void();#" />
 		</div>
 	</div>
-	</#list>
-	<div id="comment_add">
+	<div id="comment_add" class="clearfix">
 		<#if auth_user??>
-			<div contenteditable="true" class="editor" name="${target}"></div>
-			<div class="btn-g blue submit">
-				发表评论
-			</div>
+		<div contenteditable="true" class="editor" name="${target}">
+		</div>
+		<div class="btn-g blue submit">
+			发表评论
+		</div>
+		<div id="submit_info">
+		</div>
 		<#else>
-			<a href="/login?redirect=">登录</a>后评论
-		</#if>
+		<a href="/login?redirect=">
+			登录
+		</a>后评论</#if>
 	</div>
 </div>
