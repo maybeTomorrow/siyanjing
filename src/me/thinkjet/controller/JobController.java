@@ -6,7 +6,6 @@ import java.util.List;
 import me.thinkjet.auth.AuthManager;
 import me.thinkjet.interceptor.JobInterceptor;
 import me.thinkjet.interceptor.JobRecordInterceptor;
-import me.thinkjet.model.Comment;
 import me.thinkjet.model.Job;
 
 import com.jfinal.aop.Before;
@@ -29,7 +28,7 @@ public class JobController extends Controller {
 				SqlKit.sql("job.findListForJobIndexByViews"));
 		this.setAttr("page", page);
 		this.setAttr("job_list", Job.dao.paginateByCache("job-index",
-				"job" + "_" + page, page, 20,"select J.*,R.views,R.comments","from job J left join job_record R on J.id=R.id order by R.views desc" ));
+				"job" + "_" + page, page, 20,"select J.*,R.views","from job J left join job_record R on J.id=R.id order by R.views desc" ));
 		setAttr("joblist",list);
 		setAttr("count",list.size());
 	}
