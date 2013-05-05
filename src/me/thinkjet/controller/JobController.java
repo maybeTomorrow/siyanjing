@@ -28,7 +28,7 @@ public class JobController extends Controller {
 		list=Job.dao.findByCache("job-index", "job",
 				SqlKit.sql("job.findListForJobIndexByViews"));
 		this.setAttr("page", page);
-		this.setAttr("job_list", Comment.dao.paginateByCache("job-index",
+		this.setAttr("job_list", Job.dao.paginateByCache("job-index",
 				"job" + "_" + page, page, 20,"select J.*,R.views,R.comments","from job J left join job_record R on J.id=R.id order by R.views desc" ));
 		setAttr("joblist",list);
 		setAttr("count",list.size());
@@ -52,13 +52,14 @@ public class JobController extends Controller {
 		Job job = getModel(Job.class);
 		job.set("author", 5/*AuthManager.getSession(this).getUser().getLong("id")*/);
 		job.save();
-		render("index.html");
+		redirect("/job");
 	}
 
 	// 提交修改
 	public void update() {
 		Job job = getModel(Job.class);
 		job.update();
+		redirect("/job/show?id="+job.get("id"));
 	}
 
 	// 显示单条记录
@@ -76,8 +77,9 @@ public class JobController extends Controller {
 	// 搜索岗位
 	public void search() throws UnsupportedEncodingException {
 		List<Job> list;
+		int page = this.getParaToInt(1, 1);
 		StringBuffer sql = new StringBuffer(
-				"select J.*,R.views,R.comments from job J left join job_record R on J.id=R.id where 1=1");
+				" from job J left join job_record R on J.id=R.id where 1=1");
 		if (this.getPara("name") != null && !this.getPara("name").equals(""))
 			sql.append(" and J.name like '%" + this.getPara("name") + "%'");
 		if (this.getPara("type") != null && !this.getPara("type").equals(""))
@@ -94,10 +96,12 @@ public class JobController extends Controller {
 		if (this.getPara("company") != null
 				&& !this.getPara("company").equals(""))
 			sql.append(" and J.company like '%" +this.getPara("company")+"%'");
-		sql.append(" order by J.id asc limit 0,10");
-		list=Job.dao.find(sql.toString());
+		sql.append(" order by J.id asc ");
+		list=Job.dao.find("select J.*,R.views"+sql.toString()+"limit 0,20");
 		setAttr("joblist", list);
 		setAttr("count",list.size());
+		this.setAttr("page", page);
+		this.setAttr("job_list", Job.dao.paginate( page, 20,"select J.*,R.views",sql.toString() ));
 		render("index.html");
 	}
 }

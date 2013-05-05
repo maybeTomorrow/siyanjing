@@ -3,8 +3,6 @@ package me.thinkjet.interceptor;
 import java.util.HashMap;
 import java.util.Map;
 
-import sun.org.mozilla.javascript.internal.ast.Comment;
-
 import me.thinkjet.model.JobRecord;
 
 import com.jfinal.aop.Interceptor;
