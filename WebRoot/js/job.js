@@ -93,5 +93,15 @@ function post(URL, PARAMS) {
 
 //end
 
-
+//select selected option
+function select(selectid,value){
+	var opt=document.getElementById(selectid);
+	var i;
+	for(i=0;i<opt.options.length;i++){
+		if(value==opt.options[i].value){
+	        opt.options[i].selected = 'selected';
+	   }
+	}
+	}
+//end
 

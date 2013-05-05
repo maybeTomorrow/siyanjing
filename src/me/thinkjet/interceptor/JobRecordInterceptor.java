@@ -3,6 +3,8 @@ package me.thinkjet.interceptor;
 import java.util.HashMap;
 import java.util.Map;
 
+import sun.org.mozilla.javascript.internal.ast.Comment;
+
 import me.thinkjet.model.JobRecord;
 
 import com.jfinal.aop.Interceptor;
@@ -18,11 +20,11 @@ public class JobRecordInterceptor implements Interceptor{
 		    record.put(id,1);
 		else {
 			record.put(id, (record.get(id)+1));
-		if(count>100) {
+		if(count>2) {
 					Object key[] = record.keySet().toArray();
 					Object value[]=record.values().toArray();
 					for(int b=0;b<record.size();b++){
-						JobRecord j=JobRecord.dao.findFirst("select * from jobrecord where id ="+key[b]);
+						JobRecord j=JobRecord.dao.findFirst("select * from job_record where id ="+key[b]);
 						if(j!=null)
 						{
 							j.set("views",(j.getInt("views")+value[b].hashCode()));

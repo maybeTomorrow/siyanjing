@@ -120,9 +120,7 @@
 				<#list joblist as job>
 				<div class="FilterPosition ">
 					<div class="CoPart" style="float: right; color: gray;">
-						<span class="PoCount">评论(<span class="PsDetail"><a
-								href="/job/show?id=${job.id}#comment_display">${job.comments!"0"}</a></span>)
-						</span> <span class="PoCount">阅读(<span class="PsDetail">${job.views!"0"}</span>)
+						 <span class="PoCount">阅读(<span class="PsDetail">${job.views!"0"}</span>)
 						</span>
 					</div>
 					<div class="CoPart1 CoPart">
@@ -155,13 +153,16 @@
 				</div>
 				</#list>
 
-
+<#include "/layout/_paginate.html" />
+<@paginate currentPage=job_list.pageNumber totalPage=job_list.totalPage actionUrl="javascript:void();#" />
 			</div>
 		</div>
 	</div>
 	
 	<#include "/layout/job/rightmoudle.html">
 </div>
+
+</@body>
 <@script>
 <script>
 	$("#addr_city").prepend("<option value='' class='fdc' selected>-请选择地区-</option>");
@@ -172,4 +173,3 @@ function loadCity(){
 	}
 </script>
 </@script>
-</@body>

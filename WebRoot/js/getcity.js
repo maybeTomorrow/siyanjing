@@ -205,3 +205,160 @@ function init_province_and_city(pField, province, cField, city) {
         }
     }
 }
+
+/*
+*获取周边城市
+*/
+function sdcity(action,province,city){
+	switch (province) {
+    case "北京" :
+        var cityOptions = new Array();
+        break;
+    case "上海" :
+        var cityOptions = new Array(
+        "杭州");
+        break;
+    case "广东" :
+        var cityOptions = new Array(
+        "广州","深圳","珠海","东莞","中山","佛山");
+        break;
+    case "江苏" :
+        var cityOptions = new Array(
+        "南京","南通","苏州","无锡");
+        break;
+    case "重庆" :
+        var cityOptions = new Array(
+        "成都");
+        break;
+    case "安徽" :
+        var cityOptions = new Array(
+        "合肥","阜阳",
+        "黄山");
+         break;
+    case "福建" :
+        var cityOptions = new Array(
+        "福州","厦门");
+         break;
+    case "甘肃" :
+        var cityOptions = new Array(
+        "兰州","敦煌");
+        break;
+    case "广西" :
+        var cityOptions = new Array(
+        "南宁","桂林");
+        break;
+    case "贵州" :
+        var cityOptions = new Array(
+        "贵阳","铜仁","兴义","玉屏","遵义");
+        break;
+    case "海南" :
+        var cityOptions = new Array(
+        "海口","儋县","陵水","琼海","三亚","通什","万宁");
+        break;
+    case "河北" :
+        var cityOptions = new Array(
+        "石家庄","邯郸","衡水","廊坊","张家口");
+        break;
+    case "黑龙江" :
+        var cityOptions = new Array(
+        "哈尔滨","大兴安岭");
+        break;
+    case "河南" :
+        var cityOptions = new Array(
+        "郑州","安阳","鹤壁","潢川","焦作");
+        break;
+    case "香港" :
+        var cityOptions = new Array(
+        "深圳");
+        break;
+    case "湖北" :
+        var cityOptions = new Array(
+        "武汉","黄冈","襄阳");
+        break;
+    case "湖南" :
+        var cityOptions = new Array(
+        "长沙","常德","衡阳","张家界","株洲");
+        break;
+    case "江西" :
+        var cityOptions = new Array(
+        "南昌","赣州","景德镇");
+        break;
+    case "吉林" :
+        var cityOptions = new Array(
+        "长春","吉林");
+        break;
+    case "辽宁" :
+        var cityOptions = new Array(
+        "沈阳","鞍山","大连","葫芦岛");
+        break;
+    case "澳门" :
+        var cityOptions = new Array("澳门");
+        break;
+    case "内蒙古" :
+        var cityOptions = new Array(
+        "呼和浩特","包头",
+        "乌兰浩特");
+        break;
+    case "宁夏" :
+        var cityOptions = new Array(
+        "银川","固源","石嘴山","吴忠");
+        break;
+    case "青海" :
+        var cityOptions = new Array(
+        "西宁","格尔木","海晏","同仁","玉树");
+        break;
+    case "山东" :
+        var cityOptions = new Array(
+        "济南","济宁","青岛","曲阜","烟台");
+        break;
+    case "山西" :
+        var cityOptions = new Array(
+        "太原","长治","候马","临汾");
+        break;
+    case "陕西" :
+        var cityOptions = new Array(
+        "西安","汉中","延安","榆林");
+        break;
+    case "四川" :
+        var cityOptions = new Array(
+        "成都","德阳","都江堰","九寨沟","南充","汶川");
+        break;
+    case "台湾" :
+        var cityOptions = new Array(
+        "台北","基隆","台南","台中","高雄","澎湖");
+        break;
+    case "天津" :
+        var cityOptions = new Array(
+        "张家口");
+        break;
+    case "新疆" :
+        var cityOptions = new Array(
+        "乌鲁木齐","阿克苏","博乐","吐鲁番","伊宁");
+        break;
+    case "西藏" :
+        var cityOptions = new Array(
+        "拉萨","阿里","昌都","林芝","那曲","日喀则","山南");
+        break;
+    case "云南" :
+        var cityOptions = new Array(
+        "昆明","大理","丽江","西双版纳");
+        break;
+    case "浙江" :
+        var cityOptions = new Array(
+        "杭州","奉化","金华","丽水","宁波","嘉兴","温州");
+        break;
+    case "海外" :
+        var cityOptions = new Array(
+        "美国","日本","英国","法国","德国","其他");
+        break;
+    default:
+        var cityOptions = new Array("");
+        break;
+	}
+	if(cityOptions.length!=0)
+	document.write('周边城市：');
+	for(var i=0;i<cityOptions.length;i++){
+		if(cityOptions[i]!=(city)){
+		document.write('<a href="'+action+'?city='+cityOptions[i]+'">'+cityOptions[i]+' </a>');}
+	}
+}
