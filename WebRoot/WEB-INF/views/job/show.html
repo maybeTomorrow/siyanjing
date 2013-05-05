@@ -1,4 +1,6 @@
-<#include "/layout/_layout.html" /> <@head title="首页|四眼井|互联网人的乐园 "></@head> <@body 5>
+<#include "/layout/_layout.html" /> <@head title="首页|四眼井|互联网人的乐园 ">
+<script src="/js/job.js"></script>
+<script src="/js/getcity.js"></script></@head> <@body 5>
 <div class=" clearfix">
 	<div class="ui-grid-19">
 		<div class="mgl-20">
@@ -11,7 +13,7 @@
 						<ul class="info">
 							<li>
 								<strong style="margin-left: 13px">发布者：</strong>
-								<a href="http://my.oschina.net/u/1030362">
+								<a href="http://my.siyanjing.com/${job.authorname}">
 									${job.authorname}
 								</a>
 							</li>
@@ -20,7 +22,7 @@
 							</li>
 							<li>
 								<strong>工作地点：</strong>
-								<a href="/job/search?city=${job.city}">
+								<a href="javascript:post('/job/search',{city:'${job.city}'})">
 									${job.city}
 								</a>
 							</li>
@@ -35,9 +37,9 @@
 						</ul>
 						<h4>岗位名称:${job.name}</h4>
 						<h4>公司:&nbsp;&nbsp;&nbsp; 
-							<a href="#" style="text-decoration: none;">
+						
 								${job.company}
-							</a>
+							
 						</h4>
 						<h4>职位要求:</h4>
 						<div class="detail">
@@ -97,7 +99,7 @@
 					</div>
 					<div id="comment_display" rel="job_${job.id}">
 					</div>
-				</div>
+		 		</div>
 			</div>
 		</div>
 	</div>

@@ -1,38 +1,16 @@
 <#include "/layout/_layout.html" />
-<@head title="首页|四眼井|互联网人的乐园 ">
-<script src="/js/job.js"></script>
-</@head> <@body>
-<script type="text/javascript"> 
-			var type={"1":"NET程序员","2":"PHP程序员","3":"Java程序员",
-			"4":"C/C++程序员","19":"Python程序员","20":"Ruby程序员",
-			"5":"JavaScript程序员", "6":"Flash程序员", "7":"Delphi程序员",
-			"8":"前端开发工程师", "9":"项目经理", "10":"技术主管", "11":"架构师", "12":"技术总监",
-			"13":"测试工程师", "14":"系统管理员", "15":"数据库管理员", "16":"售前工程师",
-			"17":"手机应用开发工程师", "18":"其他"};
-			var salary={"0000001000":"1000元以下",
-			"0100002000":"1000-2000元",
-			"0200104000":"2001-4000元",
-			"0400106000":"4001-6000元",
-			"0600108000":"6001-8000元",
-			"0800110000":"8001-10000元",
-			"1000115000":"10001-15000元",
-			"1500125000":"15000-25000元",
-			"2500199999":"25000元以上"}
-			function distype(a){
-				document.write(type[a]);
-			}
-			function dissalary(a){
-				document.write(salary[a]);
-			}</script>
+<@head title="首页|四眼井|互联网人的乐园 "><script src="/js/job.js"></script>
+<script src="/js/getcity.js"></script>
+</@head> <@body 5>
 <div class="clearfix">
 	<div class="ui-grid-19">
 		<div class="mgl-20">
-			<div class="ui-box">
+			<div class="ui-box pd20">
 				<form action="/job/search" class="ui-form" method="post">
 					<fieldset>
 						<legend>招聘表单</legend>
 						<div class="ui-form-item">
-							<label class="ui-label">搜索职位：</label> <input type="text"
+							<label for class="ui-label">搜索职位：</label> <input type="text"
 								name="name" class="ui-input">
 						</div>
 						<div class="ui-form-item">
@@ -61,6 +39,57 @@
 								<option value="18">其他</option>
 							</select>
 						</div>
+						
+						<div class="ui-form-item">
+							<label class="ui-label"><span class="lable">工作省市：</span></label>
+								
+				<select class="ui-select"  onchange="loadCity();" name="prv" id="addr_province">
+	<option value="">-请选择省份/直辖市-</option>
+	<option value="北京">北京</option> 
+	<option value="上海">上海</option> 
+	<option value="广东">广东</option> 
+	<option value="江苏">江苏</option> 
+	<option value="浙江">浙江</option> 
+	<option value="重庆">重庆</option> 
+	<option value="安徽">安徽</option> 
+	<option value="福建">福建</option> 
+	<option value="甘肃">甘肃</option> 
+	<option value="广西">广西</option> 
+	<option value="贵州">贵州</option> 
+	<option value="海南">海南</option> 
+	<option value="河北">河北</option> 
+	<option value="黑龙江">黑龙江</option> 
+	<option value="河南">河南</option> 
+	<option value="湖北">湖北</option> 
+	<option value="湖南">湖南</option> 
+	<option value="江西">江西</option> 
+	<option value="吉林">吉林</option> 
+	<option value="辽宁">辽宁</option> 
+	<option value="内蒙古">内蒙古</option> 
+	<option value="宁夏">宁夏</option> 
+	<option value="青海">青海</option> 
+	<option value="山东">山东</option> 
+	<option value="山西">山西</option> 
+	<option value="陕西">陕西</option> 
+	<option value="四川">四川</option> 
+	<option value="天津">天津</option> 
+	<option value="新疆">新疆</option> 
+	<option value="西藏">西藏</option> 
+	<option value="云南">云南</option> 
+	<option value="香港">香港特别行政区</option> 
+	<option value="澳门">澳门特别行政区</option>
+	<option value="台湾">台湾</option> 
+	<option value="海外">海外</option>
+</select>
+-
+<select class="ui-select" name="city" id="addr_city"><option value="" class="fdc" selected="">-请选择地区-</option><option value=""></option></select>
+
+			
+								
+								
+								
+						</div>
+						
 						<div class="ui-form-item">
 							<label class="ui-label">基本薪水：</label> <select id=""
 								class="ui-select" name="salary">
@@ -80,41 +109,41 @@
 						</div>
 						<div class="ui-form-item">
 							<div class="ui-button ui-button-mblue">
-								<input type="submit" class="ui-button-text" value="查询">
+								<input type="submit" class="btn-g blue" value="搜索">
 							</div>
 						</div>
 					</fieldset>
 				</form>
 			</div>
 			<div class="ui-box clearfix">
-
+        <h3 style="font-size:3em;padding:13px;">共查询到${count}个职位。</h3>
 				<#list joblist as job>
-				<div class="FilterPosition">
+				<div class="FilterPosition ">
 					<div class="CoPart" style="float: right; color: gray;">
-						<span class="PoCount">评论(<span class="PsDetail"><a
-								href="http://www.oschina.net/job/detail/1030362_5336#userComments">${job.comments!"0"}</a></span>)
-						</span> <span class="PoCount">阅读(<span class="PsDetail">${job.views!"0"}</span>)
+						 <span class="PoCount">阅读(<span class="PsDetail">${job.views!"0"}</span>)
 						</span>
 					</div>
 					<div class="CoPart1 CoPart">
 						<span> <a
-							href="job/show?id=${job.id}"
-							target="_blank" title="JAVA程序员">${job.title}</a>
+							href="/job/show?id=${job.id}"
+							target="_blank" title="${job.title}">${job.title}</a>
 						</span> <span style="font-weight: normal;"> &nbsp;-&nbsp;<a
-							href="http://www.oschina.net/job/firm/1030362_1857"
-							target="_blank" title="${job.city}" style="font-size: 13px;">${job.company}</a>
+							href="javascript:post('/job/search',{company:'${job.company}'})"
+							target="_blank" title="${job.company}" style="font-size: 13px;">${job.company}</a>
 						</span>
 					</div>
 					<div class="CoPart">
 						<span class="PoWrapper"
 							style="width: 200px; display: inline-block;">
 							月薪：<script type="text/javascript">dissalary('${job.salary}')</script> </span> <span class="PoWrapper"
-							style="width: 150px; display: inline-block;"> 类別：<span
-							class="PsDetail"><script type="text/javascript">distype('${job.type}');</script></span>
+							style="width: 150px; display: inline-block;"> 类別：<a
+							href="/job/search?type=${job.type}" 
+							target="_blank" ><span
+							class=""><script type="text/javascript">distype('${job.type}');</script></span></a>
 						</span> <span
 							style="width: 80px; display: inline-block; font-weight: normal; font-size: 9pt;">
-
-							<a href="/job/?addr_prv=上海" style="color: grey;">${job.city}</a>
+                        
+							<a href="javascript:post('/job/search',{city:'${job.city}'})" style="color: grey;">${job.city}</a>
 						</span> <span style="float: right; color: gray; font-size: 9pt;">
 							发布日期：<span class="PsDetail">${job.createtime}</span>
 						</span>
@@ -124,7 +153,8 @@
 				</div>
 				</#list>
 
-
+<#include "/layout/_paginate.html" />
+<@paginate currentPage=job_list.pageNumber totalPage=job_list.totalPage actionUrl="javascript:void();#" />
 			</div>
 		</div>
 	</div>
@@ -133,3 +163,13 @@
 </div>
 
 </@body>
+<@script>
+<script>
+	$("#addr_city").prepend("<option value='' class='fdc' selected>-请选择地区-</option>");
+function loadCity(){
+	showcity($("#addr_province").val(), document.getElementById('addr_city'));
+			$(".fdc").remove();
+		$("#addr_city").prepend("<option value='' class='fdc' selected>-请选择地区-</option>");
+	}
+</script>
+</@script>

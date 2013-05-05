@@ -1,264 +1,234 @@
-<!DOCTYPE html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!-->
-<html class="no-js" xmlns="http://www.w3.org/1999/html"> <!--<![endif]-->
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        <title>四眼井论坛</title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width">
-        <link rel="stylesheet" type="text/css" href="jobcss/base.css">
-        <link rel="stylesheet" type="text/css" href="jobcss/comnon.css"/>
-        <link rel="stylesheet" type="text/css" href="jobcss/module.css"/>
-        <link rel="stylesheet" type="text/css" href="jobcss/theme.css"/>
-        <!--[if lt IE 9]>
-        <script src="js/dist/html5shiv.js"></script>
-        <![endif]-->
+<#include "/layout/_layout.html" /> <@head title="首页|四眼井|互联网人的乐园 "><script src="/js/job.js"></script>
+<script src="/js/getcity.js"></script>
+</@head> <@body 5>
+<div class=" clearfix">
+	<div class="ui-grid-19">
+		<div class="mgl-20">
+			<div class="ui-box pd20">
+				<form action="/job/update" class="ui-form" method="post" id="add_form" onsubmit="return check_select()">
+					<fieldset>
+						<div class="ui-form-item">
+							<label class="ui-label"><span class="lable">标题：</span></label><input class="ui-input" type="text"
+								name="job.title" value="${job.title}" >
+						</div>
 
-    </head>
-    <body>
-    <header id="header" class="ui-header">
-        <div id="topNav" class="ui-top-navwrap">
-            <ul class="ui-top-nav">
-                <li class="ui-top-nav-item">
-                    <a href="/" target="_blank" class="ui-nav-link nav-active">
-                        <span class="ui-nav-text">michael</span></a>
-                        <ul class="sub-nav">
-                            <li><a href="#">二级菜单</a></li>
-                            <li>二级菜单</li>
-                            <li>二级菜单</li>
-                            <li>二级菜单</li>
-                        </ul>
-                </li>
-            </ul>
-        </div>
-    </header>
-    <div class="container w960 t-white-bg clearfix">
-        <aside id="nav-panel">
-            <nav id="sideNav" class="sideBar">
-                <ul>
-                    <li>
-                        <figure id="logo"><a href="index.html">四眼井</a> </figure>
-                    </li>
-                    <hr class="hr_nav"/>
-                    <li>
-                        <figure>
-                            <div class="menuText sl-inline-block"><a href="/">首页</a></div>
-                            <i class="icon icon-home"></i>
-                        </figure>
-                    </li>
-                    <li>
-                        <figure>
-                            <div class="menuText sl-inline-block"><a href="/">首页</a></div>
-                            <i class="icon icon-home"></i>
-                        </figure>
-                    </li>
-                    <li>
-                        <figure>
-                            <div class="menuText sl-inline-block"><a href="/">首页</a></div>
-                            <i class="icon icon-home"></i>
-                        </figure>
-                    </li>
-                    <li>
-                        <figure>
-                            <div class="menuText sl-inline-block"><a href="/">首页</a></div>
-                            <i class="icon icon-home"></i>
-                        </figure>
-                    </li>
-                </ul>
-            </nav>
-        </aside>
-        <div id="main" class="ui-grid-18 ui-grid-right clearfix">
-            <div class="mgl-20">
-            <div class="ui-grid-17">
-                <div class="ui-box pd20">
-                    <form action="/job/create" class="ui-form" method="post">
-                        <fieldset>
-                            <legend>招聘表单</legend>
-                            <div class="ui-form-item">
-                                <label class="ui-label">招聘标题：</label>
-                                <input type="text" name="job.title" class="ui-input">
-                            </div>
-                            <div class="ui-form-item">
-                                <label class="ui-label">城市：</label>
-                                <select  class="ui-select" name="job.city"> <option value=""> 请选择</option> <option value="北京"> 北京</option> <option value="上海"> 上海</option> <option value="天津"> 天津</option> <option value="浙江"> 浙江</option> </select>
-                            </div>
-                            <div class="ui-form-item">
-                                <label class="ui-label">公司名：</label>
-                                <input type="text" name="job.company" class="ui-input">
-                            </div>
-                            <div class="ui-form-item">
-                                <label class="ui-label">岗位名：</label>
-                                <input type="text" name="job.name" class="ui-input">
-                            </div>
-                            <div class="ui-form-item">
-                                <label class="ui-label">岗位要求：</label>
-                                <textarea type="text" name="job.content" class="ui-textarea"></textarea>
-                            </div>
-                            <div class="ui-form-item">
-                                <div class="ui-button ui-button-mblue">
-                                    <input type="submit" class="ui-button-text" value="提交">
-                                </div>
-                            </div>
-                        </fieldset>
-                    </form>
-                </div>
-            </div>
-                <section class="ui-grid-17 people-panel">
-                    <div class="ui-box" id="peopleNav">
-                        <div class="ui-box-title">
-                            <div class="ui-box-title-border sl-linear">
-                                <h3>热门招聘</h3>
-                                <a href="#" class="ui-box-title-more" title="更多招聘">更多信息</a>
-                            </div>
-                        </div>
-                        <div class="ui-box-container">
-                            <div class="ui-table-container">
-                                <table class="ui-table"><!-- 可以在class中加入ui-table-inbox或ui-table-noborder分别适应不同的情况 -->
-                                    <thead>
-                                    <tr>
-                                        <th>创建时间</th>
-                                        <th>名称<em class="ft-bar">|</em>交易号</th>
-                                        <th>对方</th>
-                                        <th>金额<em class="ft-bar">|</em>明细</th>
-                                        <th>状态</th>
-                                        <th>操作</th>
-                                        <th>备注</th>
-                                    </tr>
-                                    </thead><!-- 表头可选 -->
-                                    <tbody>
-                                    <tr>
-                                        <td>Data</td>
-                                        <td>Data</td>
-                                        <td>Data</td>
-                                        <td>Data</td>
-                                        <td>Data</td>
-                                        <td class="ui-table-action ui-table-selected">Data</td>
-                                        <td>Data</td>
-                                    </tr>
-                                    <tr class="ui-table-split">
-                                        <td>Data</td>
-                                        <td>Data</td>
-                                        <td>Data</td>
-                                        <td>Data</td>
-                                        <td>Data</td>
-                                        <td class="ui-table-action">Data</td>
-                                        <td>Data</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Data</td>
-                                        <td>Data</td>
-                                        <td>Data</td>
-                                        <td>Data</td>
-                                        <td>Data</td>
-                                        <td class="ui-table-action">Data</td>
-                                        <td>Data</td>
-                                    </tr>
-                                    <tr class="ui-table-split">
-                                        <td>Data</td>
-                                        <td>Data</td>
-                                        <td>Data</td>
-                                        <td>Data</td>
-                                        <td>Data</td>
-                                        <td class="ui-table-action">Data</td>
-                                        <td>Data</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Data</td>
-                                        <td>Data</td>
-                                        <td>Data</td>
-                                        <td>Data</td>
-                                        <td>Data</td>
-                                        <td class="ui-table-action">Data</td>
-                                        <td>Data</td>
-                                    </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-            </div>
-        </div>
-        <aside class="ui-grid-6">
-                <div class="job-panel">
-                    <a  href="#" class="job-button job-button-blue">我要招聘</a>
-                </div>
-                <div class="job-panel">
-                    <a  href="#" class="job-button job-button-red">我要招聘</a>
-                </div>
-        </aside>
-        <aside class="ui-grid-6">
-            <div class="ui-box job-section">
-                <dl>
-                    <dt>您的城市:<a href="#"> 杭州 </a>
-                    </dt>
-                </dl>
-            </div>
-        </aside>
-        <aside class="ui-grid-6">
-            <div class="ui-box">
-                <div class="ui-box-title">
-                    <div class="ui-box-title-border sl-linear">
-                        <h3>people</h3>
-                    </div>
-                </div>
-                <div class="ui-box-container">
-                    sfsd
-                </div>
-                </div>
-        </aside>
-    </div>
-    <!--返回顶部-->
-    <div style="display: block;" id="gotop"></div>
-    <script type="text/javascript">
-        backTop=function (btnId){
-            var btn=document.getElementById(btnId);
-            var d=document.documentElement;
-            var b=document.body;
-            window.onscroll=set;
-            btn.onclick=function (){
-                btn.style.display="none";
-                window.onscroll=null;
-                this.timer=setInterval(function(){
-                    d.scrollTop-=Math.ceil((d.scrollTop+b.scrollTop)*0.1);
-                    b.scrollTop-=Math.ceil((d.scrollTop+b.scrollTop)*0.1);
-                    if((d.scrollTop+b.scrollTop)==0) clearInterval(btn.timer,window.onscroll=set);
-                },10);
-            };
-            function set(){btn.style.display=(d.scrollTop+b.scrollTop>100)?'block':"none"}
-        };
-        backTop('gotop');
-    </script>
-    <!--返回顶部 end-->
-    <script type="text/javascript" src="js/sea-modules/seajs/1.3.1/sea.js"></script>
-    <script type="text/javascript">
-        seajs.config({
-            alias: {
-                "$": "gallery/jquery.js"
-            }
-        });
+						<div class="ui-form-item">
+							<label class="ui-label"><span class="lable">岗位名称：</span></label><input class="ui-input"
+								type="text" name="job.name" value="${job.name}">
+						</div>
+						<div class="ui-form-item">
+							<label class="ui-label"><span class="lable">公司名称：</span></label><input class="ui-input"
+								type="text" name="job.company" value="${job.company}">
+						</div>
+						<div class="ui-form-item">
+							<label class="ui-label"><span class="lable">email：</span></label><input class="ui-input"
+								type="text" name="job.email" value="${job.email}">
+						</div>
+						<div class="ui-form-item">
+							<label class="ui-label"><span class="lable">招聘人数：</span></label><input class="ui-input"
+								type="text" name="job.recruiting_numbers" value="${job.recruiting_numbers}">
+						</div>
+						
+												<div class="ui-form-item">
+							<label class="ui-label"><span class="lable">城市：</span></label>
+								
+				<select class="ui-select"  onchange="loadCity();" name="job.prv" id="addr_province">
+	<option value="">-请选择省份/直辖市-</option>
+	<option value="北京">北京</option> 
+	<option value="上海">上海</option> 
+	<option value="广东">广东</option> 
+	<option value="江苏">江苏</option> 
+	<option value="浙江">浙江</option> 
+	<option value="重庆">重庆</option> 
+	<option value="安徽">安徽</option> 
+	<option value="福建">福建</option> 
+	<option value="甘肃">甘肃</option> 
+	<option value="广西">广西</option> 
+	<option value="贵州">贵州</option> 
+	<option value="海南">海南</option> 
+	<option value="河北">河北</option> 
+	<option value="黑龙江">黑龙江</option> 
+	<option value="河南">河南</option> 
+	<option value="湖北">湖北</option> 
+	<option value="湖南">湖南</option> 
+	<option value="江西">江西</option> 
+	<option value="吉林">吉林</option> 
+	<option value="辽宁">辽宁</option> 
+	<option value="内蒙古">内蒙古</option> 
+	<option value="宁夏">宁夏</option> 
+	<option value="青海">青海</option> 
+	<option value="山东">山东</option> 
+	<option value="山西">山西</option> 
+	<option value="陕西">陕西</option> 
+	<option value="四川">四川</option> 
+	<option value="天津">天津</option> 
+	<option value="新疆">新疆</option> 
+	<option value="西藏">西藏</option> 
+	<option value="云南">云南</option> 
+	<option value="香港">香港特别行政区</option> 
+	<option value="澳门">澳门特别行政区</option>
+	<option value="台湾">台湾</option> 
+	<option value="海外">海外</option>
+</select>
+-
+<select class="ui-select" name="job.city" id="addr_city"><option value="" class="fdc" >-请选择地区-</option><option value=""></option></select>
 
-        seajs.use(['arale/switchable/0.9.11/slide', '$','syj/common'], function(Slide, $) {
-            $(document).ready(function(){
-                    }
-            );
+						</div>
+						
+						<div class="ui-form-item">
+							<label class="ui-label"><span class="lable">学历要求：</span></label><select
+								class="ui-select" name="job.education" id="education">
+								<option value="0">无</option>
+								<option value="1">大专</option>
+								<option value="2">本科</option>
+								<option value="3">研究生</option>
+								<option value="4">硕士</option>
+								<option value="5">博士</option>
+								</select>
+						</div>
+							<div class="ui-form-item">
+							<label class="ui-label"><span class="lable">工作经验：</span></label><select
+								class="ui-select" name="job.experience" id="experience">
+								<option value="0">无经验要求</option>
+								<option value="1">1~3年</option>
+								<option value="2">3~5年</option>
+								<option value="3">5~10年</option>
+								</select>
+						</div>
+						<div class="ui-form-item">
+							<label class="ui-label"><span class="lable">职位类别：</span></label><select
+								class="ui-select" name="job.type" id="type">
+								<option value="0">请选择职位类别</option>
+								<option value="1">.NET程序员</option>
+								<option value="2">PHP程序员</option>
+								<option value="3">Java程序员</option>
+								<option value="4">C/C++程序员</option>
+								<option value="19">Python程序员</option>
+								<option value="20">Ruby程序员</option>
+								<option value="5">JavaScript程序员</option>
+								<option value="6">Flash程序员</option>
+								<option value="7">Delphi程序员</option>
+								<option value="8">前端开发工程师</option>
+								<option value="9">项目经理</option>
+								<option value="10">技术主管</option>
+								<option value="11">架构师</option>
+								<option value="12">技术总监</option>
+								<option value="13">测试工程师</option>
+								<option value="14">系统管理员</option>
+								<option value="15">数据库管理员</option>
+								<option value="16">售前工程师</option>
+								<option value="17">手机应用开发工程师</option>
+								<option value="18">其他</option>
+							</select>
+						</div>
+						<div class="ui-form-item">
+							<label class="ui-label"><span class="lable">基本薪水：</span></label> <select
+								id="salary" class="ui-select " name="job.salary">
+
+								<option value="0">请选择职位月薪</option>
+								<option value="0000001000">1000元以下</option>
+								<option value="0100002000">1000-2000元</option>
+								<option value="0200104000">2001-4000元</option>
+								<option value="0400106000">4001-6000元</option>
+								<option value="0600108000">6001-8000元</option>
+								<option value="0800110000">8001-10000元</option>
+								<option value="1000115000">10001-15000元</option>
+								<option value="1500125000">15000-25000元</option>
+								<option value="2500199999">25000元以上</option>
+							</select>
+						</div>
+						<div class="ui-form-item">
+							<label class="ui-label"><span class="lable">要求：</span></label>
+							<textarea id="editor_id" class="" name="job.content">${job.content}</textarea>
+						</div>
+						<div class="ui-form-item">
+							<div class="ui-button ui-button-mblue">
+							<input type="hidden" value="${job.id}" name="job.id">
+								<input class="ui-input" type="submit" value="提交">
+							</div>
+						</div>
+					</fieldset>
+				</form>
+			</div>
+		</div>
+	</div>
+   <#include "/layout/job/rightmoudle.html">
+</div>
+
+
+</@body>
+
+
+<@script>
+<script type="text/javascript">
+    seajs.use('kindeditor', function(KindEditor){
+        KindEditor.ready(function(K){    	
+            K.create('#editor_id', { width :  '100%' });
         });
-    </script>
-            <!-- Add your site or application content here -->
-   <!--     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
-        <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.8.3.min.js"><\/script>')</script>
-        <script src="js/plugins.js"></script>
-        <script src="js/main.js"></script>
-        &lt;!&ndash; Google Analytics: change UA-XXXXX-X to be your site's ID. &ndash;&gt;
-        <script>
-            var _gaq=[['_setAccount','UA-XXXXX-X'],['_trackPageview']];
-            (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
-            g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
-            s.parentNode.insertBefore(g,s)}(document,'script'));
-        </script>-->
-    </body>
-</html>
+    });
+</script>
+<script>
+	$("#addr_city").prepend("<option value='' class='fdc' selected>-请选择地区-</option>");
+function loadCity(){
+	showcity($("#addr_province").val(), document.getElementById('addr_city'));
+			$(".fdc").remove();
+		$("#addr_city").prepend("<option value='' class='fdc' selected>-请选择地区-</option>");
+	}
+</script>
+<script type="text/javascript">
+select('salary','${job.salary}');
+select('experience','${job.experience}');
+select('education','${job.education}');
+select('type','${job.type}');
+select('addr_province','${job.prv}');
+showcity('${job.prv}', document.getElementById('addr_city'));
+select('addr_city','${job.city}');
+
+
+</script>
+<script type="text/javascript">
+	seajs.use('validate',function(validate){
+		$("#add_form").validate({
+			onkeyup: false,
+			
+			
+	        rules: {
+	        	'job.title':{
+	        	required :true},
+	        	'job.name':{
+		        required :true},
+		        'job.company':{
+			    required :true},
+			    'job.recruiting_numbers':{
+				  required :true},
+				  'job.type':{
+				   min:1},
+				   'job.salary':{
+					min:1},
+					 'job.city':{
+						 required:true},
+				'job.email':{
+					required :true,
+					email :true,
+				},
+				'check':'required'
+	        },
+	        messages:{
+				'job.type':{
+					min :"请选择类型"
+				},
+				'job.salary':{
+					min :"请选择薪水"
+				},
+				'job.city':{
+					required :"请选择省市"
+				},
+				'check':""
+			},
+	        submitHandler: function(form){
+	            form.submit();
+	        }
+	    });
+	});
+</script>
+</@script>

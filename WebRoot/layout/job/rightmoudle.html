@@ -22,3 +22,16 @@
 			</div>
 		</div>
 	</div>
+	<div class="ui-grid-6">
+	<div class="ui-box">
+			<div class="ui-box-content">
+			<div>
+				<p><script>sdcity('/job/search','浙江','温州');</script></p>
+				<p>热门城市：
+				<#list hotcity as hotcity>
+					<a href="javascript:post('/job/search',{city:'${hotcity.city}'})">${hotcity.city}</a>				
+					</#list></p>
+					</div>
+			</div>
+		</div>
+	</div>
