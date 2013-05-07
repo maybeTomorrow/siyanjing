@@ -66,3 +66,42 @@ function disedu(a){
 /*
  * end dis
  */
+
+
+/*
+ *post
+*/
+
+
+function post(URL, PARAMS) {        
+    var temp = document.createElement("form");        
+    temp.action = URL;        
+    temp.method = "post";        
+    temp.style.display = "none";        
+    for (var x in PARAMS) {        
+        var opt = document.createElement("textarea");        
+        opt.name = x;        
+        opt.value = PARAMS[x];        
+        // alert(opt.name)        
+        temp.appendChild(opt);        
+    }        
+    document.body.appendChild(temp);        
+    temp.submit();        
+    return temp;        
+}
+
+
+//end
+
+//select selected option
+function select(selectid,value){
+	var opt=document.getElementById(selectid);
+	var i;
+	for(i=0;i<opt.options.length;i++){
+		if(value==opt.options[i].value){
+	        opt.options[i].selected = 'selected';
+	   }
+	}
+	}
+//end
+

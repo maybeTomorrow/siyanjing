@@ -1,21 +1,24 @@
 <sqlGroup name="job">
     <sql id="findOneById">
-        select U.username authorname,J.*,R.views,R.comments from users U, job J left join job_record R on J.id=R.id where U.id=J.author and J.id= ?
+        select U.username authorname,J.*,R.views from users U, job J left join job_record R on J.id=R.id where U.id=J.author and J.id= ?
     </sql>
     <sql id="findListForIndex">
-        select J.*,R.views,R.comments from job J left join job_record R on J.id=R.id order by J.id asc limit 0,10
+        select J.*,R.views from job J left join job_record R on J.id=R.id order by J.id asc limit 0,10
     </sql>
     <sql id="findListForJobIndexByViews">
-        select J.*,R.views,R.comments from job J left join job_record R on J.id=R.id order by R.views desc limit 0,10
+        select J.*,R.views from job J left join job_record R on J.id=R.id order by R.views desc
     </sql>
     <sql id="findHotJobTypeForJobIndexByCount">
         select COUNT(*) count,type from job group by type order by COUNT(*) desc;
     </sql>
+      <sql id="findHotCityForJobIndexByCount">
+        select city from job group by city order by COUNT(*) desc;
+    </sql>
     <sql id="findListForJobIndexByTime">
-        select J.*,R.views,R.comments from job J left join job_record R on J.id=R.id order by J.createtime desc limit 0,10
+        select J.*,R.views from job J left join job_record R on J.id=R.id order by J.createtime desc limit 0,10
     </sql>
     <sql id="findByUser">
-        select J.*,R.views,R.comments from job J left join job_record R on J.id=R.id where author=？
+        select J.*,R.views from job J left join job_record R on J.id=R.id where author=？
     </sql>
     <sql id="findUser">
         select * from user
