@@ -1,25 +1,25 @@
-<#include "/layout/_layout.html" />
-<@head title="首页|四眼井|互联网人的乐园 "></@head>
+<#include "/layout/admin/_layout.html" />
+<@head title="四眼井-后台管理系统 "></@head>
 <@body>
-	<div style="width:500px;margin:20px;margin-left:100px">
-		<div class="ui-box"  style="width:800px;">
+		<div class="ui-box">
 			<div class="ui-box-title">
-				<h3>发布活动</h3>
+				<h3>修改活动</h3>
 			</div>
 			<div class="ui-box-container ui-box-content">
-				<form action="/activity/create" method="post" class="ui-form">
+				<form action="/admin/activity/update" method="post" class="ui-form">
 					${errormsg!}
+					<input type="hidden" name="activity.id" value="${a.id}">
 					<div class="ui-form-item" >
             			<label for="" class="ui-label">
                 			活动标题
             			</label>
-            			<input class="ui-input" type="text" name="activity.title" style="width:500px">
+            			<input class="ui-input" type="text" name="activity.title" value="${a.title}" style="width:659px">
         			</div>
 					<div class="ui-form-item">
             			<label for="" class="ui-label">
                 			活动内容
             			</label>
-            			<textarea id="editor" name="activity.content"></textarea>
+            			<textarea id="editor" name="activity.content" style="width:670px;height:500px">${a.content}</textarea>
         			</div>
 					<div class="ui-form-item">
 						<input type="submit" class="btn-g blue" value="发布">
@@ -27,7 +27,6 @@
 				</form>
 			</div>
 		</div>
-	</div>
 </@body>
 <@script>
 <script type="text/javascript">

@@ -1,7 +1,6 @@
 package me.thinkjet.controller.admin;
 
 import me.thinkjet.model.Activity;
-import me.thinkjet.model.ActivityPhoto;
 
 import com.jfinal.aop.Before;
 import com.jfinal.core.Controller;
@@ -9,17 +8,16 @@ import com.jfinal.ext.route.ControllerBind;
 import com.jfinal.plugin.ehcache.CacheInterceptor;
 import com.jfinal.plugin.ehcache.CacheName;
 
-@ControllerBind(controllerKey = "/admin/activity/photo", viewPath = "admin/activity/photo")
-public class PhotoController extends Controller {
+@ControllerBind(controllerKey = "/admin/activity", viewPath = "admin/activity")
+public class ActivityController extends Controller {
 
 	@Before(CacheInterceptor.class)
-	@CacheName("photo")
+	@CacheName("activity")
 	public void index() {
 		int page = this.getParaToInt("page", 1);
-		setAttr("plist", Activity.dao.paginateByCache("photo", "photo-" + page,
-				page, 20, "select p.*,a.title as title",
-				"from activity_photo p left join activity a on"
-						+ " p.activity_id = a.id order by p.id desc"));
+		setAttr("activitylist", Activity.dao.paginateByCache("activity",
+				"activity_" + page, page, 4, "select *",
+				"from activity order by id desc"));
 	}
 
 	public void add() {
@@ -29,13 +27,18 @@ public class PhotoController extends Controller {
 	public void create() {
 		Activity a = getModel(Activity.class);
 		a.save();
-		render("index.html");
+		this.redirect("index");
 	}
 
 	public void update() {
 		Activity a = getModel(Activity.class);
 		a.update();
-		render("show.html");
+		this.setAttr("a",a);
+		this.render("show.html");
+	}
+
+	public void show() {
+		setAttr("a", Activity.dao.findById(getPara("id")));
 	}
 
 	public void edit() {
@@ -43,8 +46,7 @@ public class PhotoController extends Controller {
 	}
 
 	public void delete() {
-		ActivityPhoto.dao.deleteById(this.getAttr("id"));
-		this.render("index/html");
+
 	}
 
 }
