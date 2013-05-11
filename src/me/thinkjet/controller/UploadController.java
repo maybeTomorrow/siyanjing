@@ -10,8 +10,13 @@ import com.jfinal.ext.route.ControllerBind;
 /**
  * kindeditor 专用 文件&图片上传实现
  */
-@ControllerBind(controllerKey = "/upload", viewPath = "")
+@ControllerBind(controllerKey = "/upload", viewPath = "/")
 public class UploadController extends Controller {
+	
+	public void index(){
+		render("upload.html");
+	}
+	
 	public void file() {
 		File file = this.getFile().getFile();
 		String url = UploadService.uplaodFileToLocal(file);
@@ -27,6 +32,7 @@ public class UploadController extends Controller {
 	}
 
 	public void img() {
+		System.out.println("ok");
 		File file = this.getFile().getFile();
 		String url = UploadService.uplaodImgToLocal(file);
 		if (file.exists())
@@ -37,6 +43,7 @@ public class UploadController extends Controller {
 		} else {
 			this.setAttr("error", 1);
 		}
+		System.out.println(url);
 		this.renderJson();
 	}
 
